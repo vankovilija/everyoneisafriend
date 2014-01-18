@@ -5,7 +5,7 @@ public class GameSetup : MonoBehaviour {
 
 	public static int happyCount = 0;
 	public static int angryCount = 0;
-	
+
 	private Camera mainCam;
 
 	private BoxCollider2D topWall;
