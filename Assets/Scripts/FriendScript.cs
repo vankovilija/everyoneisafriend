@@ -56,23 +56,23 @@ public class FriendScript : MonoBehaviour {
 
 	}
 
-	void goVeryAngry() {
-
-		if (state == FriendState.angry) {
-			state = FriendState.veryAngry;
-			movement.moveSpeed = veryAngryMovementSpeed;
-			render.sprite = happyFace;
-			timeInState = 0;
-		}
-
-	}
-
 	void goAngry() {
 
 		if (state == FriendState.veryAngry) {
 			state = FriendState.angry;
 			movement.moveSpeed = angryMovementSpeed;
-			render.sprite = happyFace;
+			render.sprite = angryFace;
+			timeInState = 0;
+		}
+
+	}
+
+	void goVeryAngry() {
+
+		if (state == FriendState.angry) {
+			state = FriendState.veryAngry;
+			movement.moveSpeed = veryAngryMovementSpeed;
+			render.sprite = angryFace;
 			timeInState = 0;
 		}
 	}
