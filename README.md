@@ -1,0 +1,4 @@
+everyoneisafriend
+=================
+
+friendly game
