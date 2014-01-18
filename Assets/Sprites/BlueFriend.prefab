@@ -191,10 +191,10 @@ MonoBehaviour:
   happyFace: {fileID: 21300000, guid: 253237732bf874bc5a458dd684f662d4, type: 3}
   angryFace: {fileID: 21300000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
   foodTypes: 0000000001000000
-  happyMovementSpeed: 0
-  angryMovementSpeed: 0
-  veryAngryMovementSpeed: 0
-  veryAngryTime: 0
+  happyMovementSpeed: 2
+  angryMovementSpeed: 4
+  veryAngryMovementSpeed: 6
+  veryAngryTime: 3
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
