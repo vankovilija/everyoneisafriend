@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyFace: {fileID: 2800000, guid: 253237732bf874bc5a458dd684f662d4, type: 3}
   angryFace: {fileID: 2800000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
-  friendType: 0
+  foodType: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
