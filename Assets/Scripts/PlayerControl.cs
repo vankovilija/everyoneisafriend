@@ -16,9 +16,7 @@ public class PlayerControl : MonoBehaviour {
 	
 	private bool leftPressed;
 	private bool rightPressed;
-
-	public int axisDirection;
-
+	private int axisDirection;
 	
 	void Awake()
 	{

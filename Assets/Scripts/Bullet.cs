@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Bullet : MonoBehaviour {
+	
+	public FoodType type;
 
 	// Use this for initialization
 	void Start () {
