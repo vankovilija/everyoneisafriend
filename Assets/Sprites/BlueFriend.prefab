@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.13695097, y: .652360439, z: 0}
+  m_LocalPosition: {x: .0571246147, y: 2.64201593, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -188,9 +188,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae8850a408a84deabec87d0441c9f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  happyFace: {fileID: 2800000, guid: 253237732bf874bc5a458dd684f662d4, type: 3}
-  angryFace: {fileID: 2800000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
-  friendType: 0
+  happyFace: {fileID: 21300000, guid: 253237732bf874bc5a458dd684f662d4, type: 3}
+  angryFace: {fileID: 21300000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
+  foodTypes: 0000000001000000
+  happyMovementSpeed: 0
+  angryMovementSpeed: 0
+  veryAngryMovementSpeed: 0
+  veryAngryTime: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
