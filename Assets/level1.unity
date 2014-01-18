@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 153218578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6611352, y: 3.55580235, z: 0}
+  m_LocalPosition: {x: 6.30244923, y: 1.47531497, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1530349992}
@@ -1098,81 +1098,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1530349992}
---- !u!1 &1166738637
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1166738641}
-  - 212: {fileID: 1166738640}
-  - 61: {fileID: 1166738639}
-  - 114: {fileID: 1166738638}
-  m_Layer: 0
-  m_Name: AppleBuffPrefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1166738638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1166738637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 161d65c1822c7471da0a2c6867246cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodType: 0
---- !u!61 &1166738639
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1166738637}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Size: {x: .360000014, y: .409999996}
-  m_Center: {x: 0, y: 0}
---- !u!212 &1166738640
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1166738637}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 5ef1430b4eef84ec4a37cb45fb6d1075, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &1166738641
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1166738637}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.04969692, y: 2.89312506, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &1220766055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,6 +1594,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab773ac6095eb41e4bbbc1939e5f2212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueHappy: {fileID: 21300000, guid: 253237732bf874bc5a458dd684f662d4, type: 3}
+  blueSad: {fileID: 21300000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
+  redHappy: {fileID: 21300000, guid: a04a1599c96fb4392a6b233c9c875737, type: 3}
+  redSad: {fileID: 21300000, guid: 56e9ddfe84ec044cfa3d57dacd83cf0b, type: 3}
+  yellowSad: {fileID: 21300000, guid: aa56003a83440454ba084a9fa0168283, type: 3}
+  yellowHappy: {fileID: 21300000, guid: 8d78ad64e4ae94e3296a482d483bcfc2, type: 3}
+  appleCollectable: {fileID: 100000, guid: 8274c1eb3d6714571b5ece5fed017879, type: 2}
+  cupcakeCollectable: {fileID: 100000, guid: 8274c1eb3d6714571b5ece5fed017879, type: 2}
+  appleProjectile: {fileID: 0}
+  cupcakeProjectile: {fileID: 0}
 --- !u!1 &1601441886
 GameObject:
   m_ObjectHideFlags: 0
