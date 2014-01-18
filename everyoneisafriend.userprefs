@@ -2,9 +2,10 @@
   <MonoDevelop.Ide.Workspace />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SpawnBuff.cs">
     <Files>
-      <File FileName="Assets/Gun.cs" Line="12" Column="59" />
+      <File FileName="Assets/Gun.cs" Line="6" Column="31" />
       <File FileName="Assets/PlayerControl.cs" Line="8" Column="19" />
-      <File FileName="Assets/SpawnBuff.cs" Line="13" Column="29" />
+      <File FileName="Assets/Bullet.cs" Line="8" Column="27" />
+      <File FileName="Assets/SpawnBuff.cs" Line="25" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,8 +5,6 @@ public class PlayerControl : MonoBehaviour {
 	
 	[HideInInspector]
 	public bool jump = false;
-	[HideInInspector]
-	public int theScale;
 	
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 10f;	
@@ -18,9 +16,10 @@ public class PlayerControl : MonoBehaviour {
 	
 	private bool leftPressed;
 	private bool rightPressed;
-	private int axisDirection;
-	
 
+	public int axisDirection;
+
+	
 	void Awake()
 	{
 		// Setting up references.
