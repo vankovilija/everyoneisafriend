@@ -3,18 +3,22 @@ using System.Collections;
 
 public class SpawnBuff : MonoBehaviour {
 
-	private Transform[] buffSpawns;
+	private Transform[] buffSpawnPositions;
 
 	private GameObject spawnedBuff;
 	private Transform spawnPosition;
 
 	// Use this for initialization
 	void Start () {
-		buffSpawns = GetComponentInChildren<Transform> ();
+		buffSpawnPositions = GetComponentsInChildren<Transform> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		int l = buffSpawnPositions.Length;
+		int selection = Random.Range (0, l - 1);
+
+		spawnPosition = buffSpawnPositions [selection];
+
 	}
 }
