@@ -579,7 +579,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: b105aa0fa3ef4476aa3717f47dfd7961, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.39966536
+      value: -3.02936125
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b105aa0fa3ef4476aa3717f47dfd7961, type: 2}
       propertyPath: m_LocalPosition.y
@@ -625,6 +625,10 @@ Prefab:
       propertyPath: topBound
       value: 
       objectReference: {fileID: 1220766056}
+    - target: {fileID: 2000000, guid: b105aa0fa3ef4476aa3717f47dfd7961, type: 2}
+      propertyPath: orthographic size
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b105aa0fa3ef4476aa3717f47dfd7961, type: 2}
   m_RootGameObject: {fileID: 1270463704}
@@ -1829,7 +1833,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1845,7 +1849,7 @@ Transform:
   m_PrefabInternal: {fileID: 338192714}
   m_GameObject: {fileID: 1270463704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.39966536, y: -3.36173272, z: -10}
+  m_LocalPosition: {x: -3.02936125, y: -3.36173272, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
