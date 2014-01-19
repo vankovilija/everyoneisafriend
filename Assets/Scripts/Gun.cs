@@ -4,7 +4,7 @@ using System.Collections;
 public class Gun : MonoBehaviour {
 
 	public Rigidbody2D bulletType;
-	public int speed = 20;
+	public float speed = 2f;
 
 	private Transform gun;
 	
@@ -19,10 +19,12 @@ public class Gun : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire1")) {
 			if (transform.localScale.x > 0) {
 				Rigidbody2D bullet = Instantiate (bulletType, gun.transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as Rigidbody2D;
-				bullet.velocity = new Vector2(speed, 0);				
+				bullet.velocity = new Vector2(speed, speed / 2);				
+				bullet.angularVelocity = -speed * 50;
 			}else{
 				Rigidbody2D bullet = Instantiate (bulletType, gun.transform.position, Quaternion.Euler (new Vector3 (0, 0, 180f))) as Rigidbody2D;
-				bullet.velocity = new Vector2(-speed, 0);				
+				bullet.velocity = new Vector2(-speed, speed / 2);	
+				bullet.angularVelocity = speed * 50;
 			}
 
 		}

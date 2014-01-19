@@ -17,7 +17,6 @@ public class SpawnBuff : MonoBehaviour {
 	void Start () {
 		buffSpawnPositions = GetComponentsInChildren<Transform> ();
 		setupObject = GameObject.Find ("_GM").GetComponent<GameSetup>();
-		Debug.Log (setupObject);
 	}
 	
 	// Update is called once per frame

@@ -17,7 +17,7 @@ public class BuffPickupScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
-		if (coll.gameObject.layer == LayerMask.NameToLayer ("player")) {
+		if (coll.gameObject.tag == "Player") {
 			//pickup buff
 			Destroy (gameObject);
 			spawnBuff.SendMessage("CollectedBuff");

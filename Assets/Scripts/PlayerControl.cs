@@ -17,6 +17,11 @@ public class PlayerControl : MonoBehaviour {
 	private bool leftPressed;
 	private bool rightPressed;
 	private int axisDirection;
+
+	void Start()
+	{
+		gameObject.tag = "Player";
+	}
 	
 	void Awake()
 	{
@@ -32,9 +37,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		grounded = Physics2D.Linecast(groundCheck0.position, groundCheck1.position); 
-		
-
+		grounded = Physics2D.Linecast(groundCheck0.position, groundCheck1.position); 		
 
 		leftPressed = Input.GetButton ("Left");
 		rightPressed = Input.GetButton ("Right");
