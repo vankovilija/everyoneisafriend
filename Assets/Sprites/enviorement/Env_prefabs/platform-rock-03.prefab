@@ -9,9 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 61: {fileID: 6100002}
   - 61: {fileID: 6100000}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: platform-rock-03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.03381681, y: 5.68880272, z: 0}
+  m_LocalPosition: {x: 3.71406174, y: -4.86851501, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -38,19 +37,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.15969086, y: 3.06409073}
-  m_Center: {x: -3.2001543, y: .57466507}
---- !u!61 &6100002
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 8.37911415, y: .77803421}
-  m_Center: {x: -.0904426575, y: -.219203949}
+  m_Size: {x: .302442074, y: .283296615}
+  m_Center: {x: -.014680624, y: -.0183515549}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -69,10 +57,10 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_SortingLayerID: 786401637
-  m_Sprite: {fileID: 21300000, guid: 6e3ec2a0ddd964c8d8211855180bc3f9, type: 3}
+  m_SortingLayerID: 0
+  m_Sprite: {fileID: 21300000, guid: 6daa9e91ef21b4edfb47bbb71d30257e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
