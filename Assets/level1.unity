@@ -1838,7 +1838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyFace: {fileID: 21300000, guid: 253237732bf874bc5a458dd684f662d4, type: 3}
   angryFace: {fileID: 21300000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
-  foodTypes: 0100000001000000
+  foodTypes: 0000000001000000
   happyMovementSpeed: 2
   angryMovementSpeed: 4
   veryAngryMovementSpeed: 8
@@ -2208,6 +2208,10 @@ Prefab:
     - target: {fileID: 100000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
+      propertyPath: foodTypes.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}

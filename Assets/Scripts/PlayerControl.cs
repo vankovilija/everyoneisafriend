@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour {
 	public float maxSpeed = 10f;	
 	public float jumpForce = 1000f;
 
-	private bool grounded = false;
+	private RaycastHit2D grounded;
 
 	private Vector3 topLeft;
 	private Vector3 topRight;
@@ -57,7 +57,12 @@ public class PlayerControl : MonoBehaviour {
 			axisDirection = 0;
 		}
 
-		rigidbody2D.velocity = new Vector2 (axisDirection * maxSpeed, rigidbody2D.velocity.y);
+		float moveSpeed = axisDirection * maxSpeed;
+		if (!jump && grounded && grounded.collider.gameObject.rigidbody2D) {
+			moveSpeed += grounded.collider.gameObject.rigidbody2D.velocity.x;
+		}
+
+		rigidbody2D.velocity = new Vector2 (moveSpeed, rigidbody2D.velocity.y);
 		
 		if (jump) {			
 			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpForce);
