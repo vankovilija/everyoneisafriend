@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour {
 	
 	[HideInInspector]
-	public bool jump = false;
+	public float jump = 0;
 	
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 10f;	
@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetButtonDown("Jump") && grounded)
-			jump = true;
+			jump = 1;
 	}
 	
 	void FixedUpdate() {
@@ -57,20 +57,16 @@ public class PlayerControl : MonoBehaviour {
 			axisDirection = 0;
 		}
 
-		float moveSpeed = axisDirection * maxSpeed;
-		if (!jump && grounded && grounded.collider.gameObject.rigidbody2D) {
-			moveSpeed += grounded.collider.gameObject.rigidbody2D.velocity.x;
+		float moveSpeedX = axisDirection * maxSpeed;
+		float moveSpeedY = jump * jumpForce;
+		jump = 0;
+		if (grounded && grounded.collider.gameObject.rigidbody2D) {
+			moveSpeedX += grounded.collider.gameObject.rigidbody2D.velocity.x;
+			moveSpeedY += grounded.collider.gameObject.rigidbody2D.velocity.y;
 		}
 
-		rigidbody2D.velocity = new Vector2 (moveSpeed, rigidbody2D.velocity.y);
-		
-		if (jump) {			
-			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpForce);
-
-			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
-			jump = false;
-		} 
-		
+		rigidbody2D.velocity = new Vector2 (moveSpeedX, moveSpeedY + rigidbody2D.velocity.y);
+				
 		Flip ();
 	}
 	
