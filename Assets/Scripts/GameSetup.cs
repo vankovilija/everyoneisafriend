@@ -12,13 +12,9 @@ public class GameSetup : MonoBehaviour {
 	public Sprite redSad;
 	public Sprite yellowSad;
 	public Sprite yellowHappy;
-
-	public GameObject appleCollectable;
-	public GameObject cupcakeCollectable;
+	
 	public GameObject appleProjectile;
 	public GameObject cupcakeProjectile;
-
-	static public Hashtable mapping;
 
 	private Camera mainCam;
 
@@ -35,11 +31,7 @@ public class GameSetup : MonoBehaviour {
 		leftWall = transform.FindChild ("leftWall").GetComponent<BoxCollider2D>();
 		rightWall = transform.FindChild ("rightWall").GetComponent<BoxCollider2D>();
 
-//		PositionWalls ();
-
-		mapping = new Hashtable();
-		mapping [FoodType.Apple] = appleCollectable;
-		mapping [FoodType.Cupcake] = cupcakeCollectable;
+//		PositionWalls ();	
 	}
 
 	// Use this for initialization

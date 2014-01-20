@@ -146,7 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae60e7e28bf6426c9c07e8733cde9d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 20
+  collectableObjects:
+  - {fileID: 100000, guid: 8274c1eb3d6714571b5ece5fed017879, type: 2}
+  - {fileID: 100000, guid: 9b4712970f0d541fb9b9886c4c0e6e08, type: 2}
+  spawnTime: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
