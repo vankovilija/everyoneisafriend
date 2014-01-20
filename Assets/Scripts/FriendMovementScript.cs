@@ -4,6 +4,7 @@ using System.Collections;
 public class FriendMovementScript : MonoBehaviour {
 
 	public float moveSpeed = 5.0f;
+	public string[] platformLayers;
 
 	private Vector3 topLeft;
 	private Vector3 topRight;
@@ -37,10 +38,15 @@ public class FriendMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		fallingLeft = !(Physics2D.Linecast(transform.position, transform.position + bottomLeft - singleUnitHorizontalVector - singleUnitVerticalVector, 1 << LayerMask.NameToLayer("platforms")));
-		fallingRight = !(Physics2D.Linecast(transform.position, transform.position + bottomRight + singleUnitHorizontalVector - singleUnitVerticalVector, 1 << LayerMask.NameToLayer("platforms")));
-		hitLeft = Physics2D.Linecast (transform.position + topLeft - singleUnitHorizontalVector, transform.position + bottomLeft - singleUnitHorizontalVector, 1 << LayerMask.NameToLayer ("platforms"));
-		hitRight = Physics2D.Linecast (transform.position + topRight + singleUnitHorizontalVector, transform.position + bottomRight + singleUnitHorizontalVector, 1 << LayerMask.NameToLayer ("platforms"));
+		int layerMask = 1;
+		for (int i = 0; i < platformLayers.Length; i++) {
+			layerMask = layerMask << LayerMask.NameToLayer(platformLayers[i]);
+		}
+
+		fallingLeft = !(Physics2D.Linecast(transform.position, transform.position + bottomLeft - singleUnitHorizontalVector - singleUnitVerticalVector, layerMask));
+		fallingRight = !(Physics2D.Linecast(transform.position, transform.position + bottomRight + singleUnitHorizontalVector - singleUnitVerticalVector, layerMask));
+		hitLeft = Physics2D.Linecast (transform.position + topLeft - singleUnitHorizontalVector, transform.position + bottomLeft - singleUnitHorizontalVector, layerMask);
+		hitRight = Physics2D.Linecast (transform.position + topRight + singleUnitHorizontalVector, transform.position + bottomRight + singleUnitHorizontalVector, layerMask);
 
 		if ((direction == 1 && (fallingRight || hitRight)) || (direction == -1 && (fallingLeft || hitLeft))) {
 			direction *= -1;

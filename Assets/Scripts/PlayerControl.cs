@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
-	
+
+	static public string PLAYER_TAG = "Player";
+
 	[HideInInspector]
 	public float jump = 0;
 	
@@ -29,7 +31,7 @@ public class PlayerControl : MonoBehaviour {
 
 	void Start()
 	{
-		gameObject.tag = "Player";
+		gameObject.tag = PLAYER_TAG;
 		BoxCollider2D colider = GetComponent<BoxCollider2D> ();
 		topLeft = new Vector3 (colider.center.x - colider.size.x / 2, colider.center.y + colider.size.y / 2, 0f);
 		topRight = new Vector3 (colider.center.x + colider.size.x / 2, colider.center.y + colider.size.y / 2, 0f);
@@ -48,7 +50,7 @@ public class PlayerControl : MonoBehaviour {
 	
 	void FixedUpdate() {
 		grounded = Physics2D.Linecast(transform.position + bottomLeft - singleUnitVerticalVector, transform.position + bottomRight - singleUnitVerticalVector); 		
-		Debug.Log (grounded.collider);
+
 		if (grounded) {
 			MoveSpeedEventDispatcher newDispatcher = grounded.collider.gameObject.GetComponent<MoveSpeedEventDispatcher> ();
 			if (newDispatcher != currentGroundMoveSpeedEventDispatcher) {
