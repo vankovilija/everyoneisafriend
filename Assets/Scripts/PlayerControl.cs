@@ -29,6 +29,13 @@ public class PlayerControl : MonoBehaviour {
 	private MoveSpeedEventDispatcher currentGroundMoveSpeedEventDispatcher;
 	private Vector2 groundVelocity = new Vector2(0f,0f);
 
+	private Vector2 _spawnPosition;
+	public Vector2 spawnPosition{
+		get{
+			return _spawnPosition;
+		}
+	}
+
 	void Start()
 	{
 		gameObject.tag = PLAYER_TAG;
@@ -40,6 +47,7 @@ public class PlayerControl : MonoBehaviour {
 		
 		singleUnitHorizontalVector = new Vector3 (0.3f, 0f, 0f);
 		singleUnitVerticalVector = new Vector3 (0f, 0.1f, 0f);
+		_spawnPosition = new Vector2 (transform.position.x, transform.position.y);
 	}
 	
 	// Update is called once per frame

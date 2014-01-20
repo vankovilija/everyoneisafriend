@@ -29,8 +29,8 @@ public class FriendScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		render = GetComponent<SpriteRenderer> ();
-		state = FriendState.angry;
 		movement = GetComponent<FriendMovementScript> ();
+		goAngry ();
 	}
 	
 	// Update is called once per frame
@@ -45,29 +45,32 @@ public class FriendScript : MonoBehaviour {
 
 	void goHappy() {
 
-		if (state == FriendState.angry) {
+		if (state != FriendState.happy) {
 			state = FriendState.happy;
 			movement.moveSpeed = happyMovementSpeed;
 			render.sprite = happyFace;
 			timeInState = 0;
+			if(gameObject.GetComponent<DeathOnTouch>() != null)
+				Destroy(gameObject.GetComponent<DeathOnTouch>());
 		}
 
 	}
 
 	void goAngry() {
 
-		if (state == FriendState.veryAngry) {
+		if (state != FriendState.angry) {
 			state = FriendState.angry;
 			movement.moveSpeed = angryMovementSpeed;
 			render.sprite = angryFace;
 			timeInState = 0;
+			gameObject.AddComponent<DeathOnTouch>();
 		}
 
 	}
 
 	void goVeryAngry() {
 
-		if (state == FriendState.angry) {
+		if (state != FriendState.veryAngry) {
 			state = FriendState.veryAngry;
 			movement.moveSpeed = veryAngryMovementSpeed;
 			render.sprite = angryFace;

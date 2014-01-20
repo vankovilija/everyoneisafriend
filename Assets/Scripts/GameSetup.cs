@@ -6,16 +6,6 @@ public class GameSetup : MonoBehaviour {
 	public static int happyCount = 0;
 	public static int angryCount = 0;
 
-	public Sprite blueHappy;
-	public Sprite blueSad;
-	public Sprite redHappy;
-	public Sprite redSad;
-	public Sprite yellowSad;
-	public Sprite yellowHappy;
-	
-	public GameObject appleProjectile;
-	public GameObject cupcakeProjectile;
-
 	private Camera mainCam;
 
 	private BoxCollider2D topWall;
