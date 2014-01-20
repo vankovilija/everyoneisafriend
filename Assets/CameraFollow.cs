@@ -43,8 +43,6 @@ public class CameraFollow : MonoBehaviour {
 			newY = bottomBound.position.y + heightHalf;
 		}
 
-		Debug.Log (newX + " - " + newY);
-
 		transform.position = new Vector3(newX, newY, transform.position.z);
 		
 	}

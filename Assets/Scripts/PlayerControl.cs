@@ -9,10 +9,16 @@ public class PlayerControl : MonoBehaviour {
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 10f;	
 	public float jumpForce = 1000f;
-	
-	private Transform groundCheck0;
-	private Transform groundCheck1;
+
 	private bool grounded = false;
+
+	private Vector3 topLeft;
+	private Vector3 topRight;
+	private Vector3 bottomLeft;
+	private Vector3 bottomRight;
+	
+	private Vector3 singleUnitHorizontalVector;
+	private Vector3 singleUnitVerticalVector;
 	
 	private bool leftPressed;
 	private bool rightPressed;
@@ -21,13 +27,14 @@ public class PlayerControl : MonoBehaviour {
 	void Start()
 	{
 		gameObject.tag = "Player";
-	}
-	
-	void Awake()
-	{
-		// Setting up references.
-		groundCheck0 = transform.Find("groundCheck0");
-		groundCheck1 = transform.Find("groundCheck1");
+		BoxCollider2D colider = GetComponent<BoxCollider2D> ();
+		topLeft = new Vector3 (colider.center.x - colider.size.x / 2, colider.center.y + colider.size.y / 2, 0f);
+		topRight = new Vector3 (colider.center.x + colider.size.x / 2, colider.center.y + colider.size.y / 2, 0f);
+		bottomLeft = new Vector3 (colider.center.x - colider.size.x / 2, colider.center.y - colider.size.y / 2, 0f);
+		bottomRight = new Vector3 (colider.center.x + colider.size.x / 2, colider.center.y - colider.size.y / 2, 0f);
+		
+		singleUnitHorizontalVector = new Vector3 (0.3f, 0f, 0f);
+		singleUnitVerticalVector = new Vector3 (0f, 0.3f, 0f);
 	}
 	
 	// Update is called once per frame
@@ -37,7 +44,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		grounded = Physics2D.Linecast(groundCheck0.position, groundCheck1.position); 		
+		grounded = Physics2D.Linecast(transform.position + bottomLeft - singleUnitVerticalVector, transform.position + bottomRight - singleUnitVerticalVector); 		
 
 		leftPressed = Input.GetButton ("Left");
 		rightPressed = Input.GetButton ("Right");
