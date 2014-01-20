@@ -2,17 +2,6 @@
 using System.Collections;
 
 public class Health : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	void die() {
 		transform.position = GetComponent<PlayerControl> ().spawnPosition;
 	}
