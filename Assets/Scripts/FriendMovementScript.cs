@@ -20,6 +20,8 @@ public class FriendMovementScript : MonoBehaviour {
 
 	private int direction = 1;
 
+	private Vector2 previousVelocity;
+
 	// Use this for initialization
 	void Start () {
 		BoxCollider2D colider = GetComponent<BoxCollider2D> ();
@@ -33,7 +35,7 @@ public class FriendMovementScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		fallingLeft = !(Physics2D.Linecast(transform.position, transform.position + bottomLeft - singleUnitHorizontalVector - singleUnitVerticalVector, 1 << LayerMask.NameToLayer("platforms")));
 		fallingRight = !(Physics2D.Linecast(transform.position, transform.position + bottomRight + singleUnitHorizontalVector - singleUnitVerticalVector, 1 << LayerMask.NameToLayer("platforms")));
@@ -44,6 +46,30 @@ public class FriendMovementScript : MonoBehaviour {
 			direction *= -1;
 		}
 
-		rigidbody2D.velocity = new Vector2 (moveSpeed * direction, rigidbody2D.velocity.y);
+		Vector2 newVelocity = new Vector2 (moveSpeed * direction, rigidbody2D.velocity.y);
+		rigidbody2D.velocity = newVelocity;
+
+		if (previousVelocity != newVelocity) {
+			MoveSpeedEventDispatcher dispatcher = GetComponent<MoveSpeedEventDispatcher> ();
+			if (dispatcher != null) {
+					dispatcher.onMoveSpeedChange ();
+			}
+		}
+
+		previousVelocity = newVelocity;
+
+		Flip ();
+	}
+
+	void Flip(){			
+		// Multiply the player's x local scale by -1.
+		Vector3 theScale = transform.localScale;
+		
+		if (direction > 0)
+			theScale.x = -1;
+		else if(direction < 0)
+			theScale.x = 1;
+		
+		transform.localScale = theScale;
 	}
 }

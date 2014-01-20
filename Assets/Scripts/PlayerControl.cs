@@ -24,6 +24,9 @@ public class PlayerControl : MonoBehaviour {
 	private bool rightPressed;
 	private int axisDirection;
 
+	private MoveSpeedEventDispatcher currentGroundMoveSpeedEventDispatcher;
+	private Vector2 groundVelocity = new Vector2(0f,0f);
+
 	void Start()
 	{
 		gameObject.tag = "Player";
@@ -46,6 +49,20 @@ public class PlayerControl : MonoBehaviour {
 	void FixedUpdate() {
 		grounded = Physics2D.Linecast(transform.position + bottomLeft - singleUnitVerticalVector, transform.position + bottomRight - singleUnitVerticalVector); 		
 
+		if (grounded) {
+			MoveSpeedEventDispatcher newDispatcher = grounded.collider.gameObject.GetComponent<MoveSpeedEventDispatcher> ();
+			if (newDispatcher != currentGroundMoveSpeedEventDispatcher) {
+				if (currentGroundMoveSpeedEventDispatcher != null)
+						currentGroundMoveSpeedEventDispatcher.MoveSpeedChange -= OnGroundSpeedChange;
+				currentGroundMoveSpeedEventDispatcher = newDispatcher;
+				if (currentGroundMoveSpeedEventDispatcher != null)
+						currentGroundMoveSpeedEventDispatcher.MoveSpeedChange += OnGroundSpeedChange;
+
+				UpdateGroundVelocity();
+				UpdatePlayerMoveSpeed();
+			}
+		}
+
 		leftPressed = Input.GetButton ("Left");
 		rightPressed = Input.GetButton ("Right");
 
@@ -57,17 +74,30 @@ public class PlayerControl : MonoBehaviour {
 			axisDirection = 0;
 		}
 
-		float moveSpeedX = axisDirection * maxSpeed;
-		float moveSpeedY = jump * jumpForce;
-		jump = 0;
-		if (grounded && grounded.collider.gameObject.rigidbody2D) {
-			moveSpeedX += grounded.collider.gameObject.rigidbody2D.velocity.x;
-			moveSpeedY += grounded.collider.gameObject.rigidbody2D.velocity.y;
-		}
-
-		rigidbody2D.velocity = new Vector2 (moveSpeedX, moveSpeedY + rigidbody2D.velocity.y);
+		UpdatePlayerMoveSpeed ();
 				
 		Flip ();
+	}
+
+	void UpdatePlayerMoveSpeed(){
+		Vector2 moveSpeed = new Vector2(axisDirection * maxSpeed, jump * jumpForce);
+		jump = 0;
+
+		moveSpeed += groundVelocity;	
+		
+		rigidbody2D.velocity = new Vector2 (moveSpeed.x, moveSpeed.y + rigidbody2D.velocity.y);
+	}
+
+	void OnGroundSpeedChange(GameObject groundObject){
+		UpdateGroundVelocity ();
+		UpdatePlayerMoveSpeed ();
+	}
+
+	void UpdateGroundVelocity(){
+		if (grounded && grounded.collider.gameObject.rigidbody2D != null)
+			groundVelocity = grounded.collider.gameObject.rigidbody2D.velocity;
+		else
+			groundVelocity = new Vector2 (0f, 0f);
 	}
 	
 	void Flip(){			

@@ -13,7 +13,8 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  - 114: {fileID: 11400004}
+  m_Layer: 11
   m_Name: BlueFriend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +54,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 19c30b3c038694c52896b61dc2c4d783, type: 2}
   m_IsTrigger: 0
   m_Size: {x: .600000024, y: .800000012}
   m_Center: {x: 0, y: -.00999999978}
@@ -70,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyFace: {fileID: 21300000, guid: 253237732bf874bc5a458dd684f662d4, type: 3}
   angryFace: {fileID: 21300000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
-  foodTypes: 0100000001000000
+  foodTypes: 0000000001000000
   happyMovementSpeed: 2
   angryMovementSpeed: 4
   veryAngryMovementSpeed: 8
@@ -87,6 +88,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51a23d33c03944649bcf6c4913d8968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
