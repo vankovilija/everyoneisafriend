@@ -31,7 +31,7 @@ public class FriendMovementScript : MonoBehaviour {
 		bottomRight = new Vector3 (colider.center.x + colider.size.x / 2, colider.center.y - colider.size.y / 2, 0f);
 
 		singleUnitHorizontalVector = new Vector3 (0.3f, 0f, 0f);
-		singleUnitVerticalVector = new Vector3 (0f, 0.3f, 0f);
+		singleUnitVerticalVector = new Vector3 (0f, 0.1f, 0f);
 	}
 	
 	// Update is called once per frame

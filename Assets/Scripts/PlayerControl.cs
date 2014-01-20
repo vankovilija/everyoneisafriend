@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour {
 		bottomRight = new Vector3 (colider.center.x + colider.size.x / 2, colider.center.y - colider.size.y / 2, 0f);
 		
 		singleUnitHorizontalVector = new Vector3 (0.3f, 0f, 0f);
-		singleUnitVerticalVector = new Vector3 (0f, 0.3f, 0f);
+		singleUnitVerticalVector = new Vector3 (0f, 0.1f, 0f);
 	}
 	
 	// Update is called once per frame
@@ -48,7 +48,7 @@ public class PlayerControl : MonoBehaviour {
 	
 	void FixedUpdate() {
 		grounded = Physics2D.Linecast(transform.position + bottomLeft - singleUnitVerticalVector, transform.position + bottomRight - singleUnitVerticalVector); 		
-
+		Debug.Log (grounded.collider);
 		if (grounded) {
 			MoveSpeedEventDispatcher newDispatcher = grounded.collider.gameObject.GetComponent<MoveSpeedEventDispatcher> ();
 			if (newDispatcher != currentGroundMoveSpeedEventDispatcher) {
