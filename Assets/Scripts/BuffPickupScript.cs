@@ -4,11 +4,12 @@ using System.Collections;
 public class BuffPickupScript : MonoBehaviour {
 
 	public FoodType foodType;
-	public GameObject spawnBuff;
+	public delegate void EventHandler (FoodType type);
+
+	public event EventHandler PickedUpBuff;
 
 	// Use this for initialization
 	void Start () {
-		spawnBuff = GameObject.Find ("_BuffSpawn");
 	}
 	
 	// Update is called once per frame
@@ -20,7 +21,7 @@ public class BuffPickupScript : MonoBehaviour {
 		if (coll.gameObject.tag == PlayerControl.PLAYER_TAG) {
 			//pickup buff
 			Destroy (gameObject);
-			spawnBuff.SendMessage("CollectedBuff");
+			PickedUpBuff(foodType);
 		}
 	}
 }
