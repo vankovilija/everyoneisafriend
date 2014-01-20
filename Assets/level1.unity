@@ -1275,6 +1275,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
   m_RootGameObject: {fileID: 2080438354}
@@ -1750,7 +1754,7 @@ GameObject:
   - 50: {fileID: 1377536326}
   - 114: {fileID: 1377536330}
   - 114: {fileID: 1377536331}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BlueFriend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2201,6 +2205,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
   m_RootGameObject: {fileID: 1377536325}
@@ -2598,7 +2606,7 @@ GameObject:
   - 50: {fileID: 2080438357}
   - 114: {fileID: 2080438356}
   - 114: {fileID: 2080438355}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BlueFriend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
