@@ -5,28 +5,51 @@ public class Gun : MonoBehaviour {
 
 	public Rigidbody2D bulletType;
 	public float speed = 2f;
+	public float rotationSpeed = 100f;
 
-	private Transform gun;
+	public bool shootContinusly = true;
+	public float shootTime = 0.5f;
+
+	protected Transform gun;
+
+	private bool shooting = false;
+
+	private float timeFromLastShot = 0;
 	
-	void Awake () {
-
+	void Start () {
 		gun = transform.FindChild ("Gun");
+		timeFromLastShot = shootTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (Input.GetButtonDown ("Fire1")) {
-			if (transform.localScale.x > 0) {
-				Rigidbody2D bullet = Instantiate (bulletType, gun.transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as Rigidbody2D;
-				bullet.velocity = new Vector2(speed, speed / 2);				
-				bullet.angularVelocity = -speed * 50;
-			}else{
-				Rigidbody2D bullet = Instantiate (bulletType, gun.transform.position, Quaternion.Euler (new Vector3 (0, 0, 180f))) as Rigidbody2D;
-				bullet.velocity = new Vector2(-speed, speed / 2);	
-				bullet.angularVelocity = speed * 50;
-			}
-
+			shooting = true;
 		}
+		if (Input.GetButtonUp ("Fire1")) {
+			shooting = false;
+		}
+
+		if (shooting) {
+			if(timeFromLastShot >= shootTime){
+				if (transform.localScale.x > 0) {
+					ShootBullet(1);				
+				}else{
+					ShootBullet(-1);
+				}
+
+				timeFromLastShot = 0;
+
+				if(!shootContinusly){
+					shooting = false;
+				}
+			}
+		}
+
+		timeFromLastShot += Time.deltaTime;
+	}
+
+	virtual protected void ShootBullet (int direction){
+		//to be overriden
 	}
 }
