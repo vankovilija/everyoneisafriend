@@ -22,7 +22,10 @@ public class PushOnTouch : MonoBehaviour {
 			if (player != null && player.rigidbody2D != null) {
 
 				Vector2 forceDirection = (player.transform.position - transform.position);
-				if(forceDirection.y <= 0){
+				Debug.Log(forceDirection.y);
+				if(forceDirection.y <= -0.5f){
+					forceDirection.y = 0f;
+				}else if(forceDirection.y <= 0){
 					forceDirection.y = 2f;
 				}
 
