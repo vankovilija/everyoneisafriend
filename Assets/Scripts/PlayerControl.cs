@@ -7,12 +7,16 @@ public class PlayerControl : MonoBehaviour {
 
 	[HideInInspector]
 	public float jump = 0;
+
+	public string[] platformLayers;
+	public string[] passTroughLayers;
 	
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 10f;	
 	public float jumpForce = 1000f;
 
 	private RaycastHit2D grounded;
+	private RaycastHit2D sky;
 
 	private Vector3 topLeft;
 	private Vector3 topRight;
@@ -57,10 +61,23 @@ public class PlayerControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		grounded = Physics2D.Linecast(transform.position + bottomLeft - singleUnitVerticalVector, transform.position + bottomRight - singleUnitVerticalVector); 		
+		int layerMask = 0;
+		for (int i = 0; i < platformLayers.Length; i++) {
+			layerMask = layerMask | (1 << LayerMask.NameToLayer(platformLayers[i]));
+		}
+		grounded = Physics2D.Linecast(transform.position + bottomLeft - singleUnitVerticalVector, transform.position + bottomRight - singleUnitVerticalVector, layerMask); 		
+
+		layerMask = 0;
+		for (int i = 0; i < passTroughLayers.Length; i++) {
+			layerMask = layerMask | (1 << LayerMask.NameToLayer(passTroughLayers[i]));
+		}
+		sky = Physics2D.Linecast(transform.position + topLeft + singleUnitVerticalVector * 2 - singleUnitHorizontalVector, transform.position + topRight + singleUnitVerticalVector * 2 + singleUnitHorizontalVector, layerMask); 		
+					
+		if (sky && sky.collider.gameObject.layer == LayerMask.NameToLayer("platforms")) {
+			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), LayerMask.NameToLayer("platforms"));
+		}
 
 		if (grounded && grounded.collider.gameObject.tag != "Bullet") {
-			Debug.Log(grounded.collider.gameObject.tag);
 			MoveSpeedEventDispatcher newDispatcher = grounded.collider.gameObject.GetComponent<MoveSpeedEventDispatcher> ();
 			if (newDispatcher != currentGroundMoveSpeedEventDispatcher) {
 				if (currentGroundMoveSpeedEventDispatcher != null)
@@ -72,6 +89,7 @@ public class PlayerControl : MonoBehaviour {
 				UpdateGroundVelocity();
 				UpdatePlayerMoveSpeed();
 			}
+			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), LayerMask.NameToLayer("platforms"), false);
 		}
 
 		leftPressed = Input.GetButton ("Left");

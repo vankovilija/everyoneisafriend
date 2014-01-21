@@ -38,9 +38,9 @@ public class FriendMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		int layerMask = 1;
+		int layerMask = 0;
 		for (int i = 0; i < platformLayers.Length; i++) {
-			layerMask = layerMask << LayerMask.NameToLayer(platformLayers[i]);
+			layerMask = layerMask | (1 << LayerMask.NameToLayer(platformLayers[i]));
 		}
 
 		fallingLeft = !(Physics2D.Linecast(transform.position, transform.position + bottomLeft - singleUnitHorizontalVector - singleUnitVerticalVector, layerMask));
