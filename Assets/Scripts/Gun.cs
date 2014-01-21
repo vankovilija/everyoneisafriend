@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour {
 	private float timeFromLastShot = 0;
 	
 	void Start () {
-		gun = transform.FindChild (ShootPoint);
+		gun = transform;
 		timeFromLastShot = shootTime;
 		Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("player"), LayerMask.NameToLayer (bulletsLayer));
 	}
@@ -38,7 +38,13 @@ public class Gun : MonoBehaviour {
 		if (shooting) {
 			if(timeFromLastShot >= shootTime){
 				GameObject bullet;
-				if (transform.localScale.x > 0) {
+				Vector3 scale = Vector3.one;
+				if (transform.parent != null) {
+					scale = transform.parent.localScale;
+				} else {
+					scale = transform.localScale;
+				}
+				if (scale.x > 0) {
 					bullet = ShootBullet(1);				
 				}else{
 					bullet = ShootBullet(-1);

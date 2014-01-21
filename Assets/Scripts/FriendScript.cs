@@ -52,6 +52,8 @@ public class FriendScript : MonoBehaviour {
 			timeInState = 0;
 			if(gameObject.GetComponent<DeathOnTouch>() != null)
 				Destroy(gameObject.GetComponent<DeathOnTouch>());
+			if(gameObject.GetComponent<PushOnTouch>() != null)
+				Destroy(gameObject.GetComponent<PushOnTouch>());
 		}
 
 	}
@@ -63,7 +65,9 @@ public class FriendScript : MonoBehaviour {
 			movement.moveSpeed = angryMovementSpeed;
 			render.sprite = angryFace;
 			timeInState = 0;
-			gameObject.AddComponent<DeathOnTouch>();
+			if(gameObject.GetComponent<DeathOnTouch>() != null)
+				Destroy(gameObject.GetComponent<DeathOnTouch>());
+			gameObject.AddComponent<PushOnTouch>();
 		}
 
 	}
@@ -75,6 +79,9 @@ public class FriendScript : MonoBehaviour {
 			movement.moveSpeed = veryAngryMovementSpeed;
 			render.sprite = angryFace;
 			timeInState = 0;
+			if(gameObject.GetComponent<PushOnTouch>() != null)
+				Destroy(gameObject.GetComponent<PushOnTouch>());
+			gameObject.AddComponent<DeathOnTouch>();
 		}
 	}
 
