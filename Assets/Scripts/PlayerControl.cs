@@ -142,5 +142,6 @@ public class PlayerControl : MonoBehaviour {
 			theScale.x = -1;
 		
 		transform.localScale = theScale;
+		Debug.Log (transform.localScale);
 	}
 }
