@@ -10,6 +10,9 @@ public class Gun : MonoBehaviour {
 	public bool shootContinusly = true;
 	public float shootTime = 0.5f;
 
+	public string FireButton = "Fire1";
+	public string ShootPoint = "Gun";
+
 	protected Transform gun;
 
 	private bool shooting = false;
@@ -17,16 +20,16 @@ public class Gun : MonoBehaviour {
 	private float timeFromLastShot = 0;
 	
 	void Start () {
-		gun = transform.FindChild ("Gun");
+		gun = transform.FindChild (ShootPoint);
 		timeFromLastShot = shootTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Fire1")) {
+		if (Input.GetButtonDown (FireButton)) {
 			shooting = true;
 		}
-		if (Input.GetButtonUp ("Fire1")) {
+		if (Input.GetButtonUp (FireButton)) {
 			shooting = false;
 		}
 
