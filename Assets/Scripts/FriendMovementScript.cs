@@ -23,6 +23,8 @@ public class FriendMovementScript : MonoBehaviour {
 
 	private Vector2 previousVelocity;
 
+	private float previousPositionX;
+
 	// Use this for initialization
 	void Start () {
 		BoxCollider2D colider = GetComponent<BoxCollider2D> ();
@@ -48,7 +50,7 @@ public class FriendMovementScript : MonoBehaviour {
 		hitLeft = Physics2D.Linecast (transform.position + topLeft - singleUnitHorizontalVector, transform.position + bottomLeft - singleUnitHorizontalVector, layerMask);
 		hitRight = Physics2D.Linecast (transform.position + topRight + singleUnitHorizontalVector, transform.position + bottomRight + singleUnitHorizontalVector, layerMask);
 
-		if ((direction == 1 && (fallingRight || hitRight)) || (direction == -1 && (fallingLeft || hitLeft))) {
+		if ((direction == 1 && (fallingRight || hitRight)) || (direction == -1 && (fallingLeft || hitLeft)) || previousPositionX == transform.position.x) {
 			direction *= -1;
 		}
 
@@ -63,6 +65,7 @@ public class FriendMovementScript : MonoBehaviour {
 		}
 
 		previousVelocity = newVelocity;
+		previousPositionX = transform.position.x;
 
 		Flip ();
 	}
