@@ -59,7 +59,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: _GM
-  m_TagString: Untagged
+  m_TagString: Buff spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,16 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab773ac6095eb41e4bbbc1939e5f2212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueHappy: {fileID: 21300000, guid: 253237732bf874bc5a458dd684f662d4, type: 3}
-  blueSad: {fileID: 21300000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
-  redHappy: {fileID: 21300000, guid: a04a1599c96fb4392a6b233c9c875737, type: 3}
-  redSad: {fileID: 21300000, guid: 56e9ddfe84ec044cfa3d57dacd83cf0b, type: 3}
-  yellowSad: {fileID: 21300000, guid: aa56003a83440454ba084a9fa0168283, type: 3}
-  yellowHappy: {fileID: 21300000, guid: 8d78ad64e4ae94e3296a482d483bcfc2, type: 3}
-  appleCollectable: {fileID: 100000, guid: 8274c1eb3d6714571b5ece5fed017879, type: 2}
-  cupcakeCollectable: {fileID: 100000, guid: 9b4712970f0d541fb9b9886c4c0e6e08, type: 2}
-  appleProjectile: {fileID: 0}
-  cupcakeProjectile: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

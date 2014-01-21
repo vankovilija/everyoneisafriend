@@ -3,6 +3,9 @@ using System.Collections;
 
 public class SpawnBuff : MonoBehaviour {
 
+	public delegate void EventHandler (FoodType type);
+	public event EventHandler PickedUpBuff;
+
 	public GameObject[] collectableObjects;
 	public float spawnTime = 20f;
 
@@ -12,6 +15,8 @@ public class SpawnBuff : MonoBehaviour {
 	private Transform spawnPosition;
 
 	private float timerTime = 0f;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -45,5 +50,6 @@ public class SpawnBuff : MonoBehaviour {
 		spawnedBuff = null;
 		spawnPosition = null;
 		timerTime = spawnTime;
+		PickedUpBuff(type);
 	}
 }
