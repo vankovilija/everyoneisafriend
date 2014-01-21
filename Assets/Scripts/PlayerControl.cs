@@ -52,14 +52,15 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetButtonDown("Jump") && grounded)
+		if(Input.GetButtonDown("Jump") && grounded && grounded.collider.gameObject.tag != "Bullet")
 			jump = 1;
 	}
 	
 	void FixedUpdate() {
 		grounded = Physics2D.Linecast(transform.position + bottomLeft - singleUnitVerticalVector, transform.position + bottomRight - singleUnitVerticalVector); 		
 
-		if (grounded) {
+		if (grounded && grounded.collider.gameObject.tag != "Bullet") {
+			Debug.Log(grounded.collider.gameObject.tag);
 			MoveSpeedEventDispatcher newDispatcher = grounded.collider.gameObject.GetComponent<MoveSpeedEventDispatcher> ();
 			if (newDispatcher != currentGroundMoveSpeedEventDispatcher) {
 				if (currentGroundMoveSpeedEventDispatcher != null)

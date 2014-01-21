@@ -548,7 +548,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: 1.77734661, y: .3143363}
-  m_Center: {x: -4.44332838, y: 2.5752666}
+  m_Center: {x: -4.04332781, y: 2.5752666}
 --- !u!61 &423829836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1021,6 +1021,10 @@ Prefab:
       propertyPath: m_Center.y
       value: 2.5752666
       objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 671de31e370664c80850927c43f040e7, type: 2}
+      propertyPath: m_Center.x
+      value: -4.04332781
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 671de31e370664c80850927c43f040e7, type: 2}
   m_RootGameObject: {fileID: 423829832}
@@ -1490,6 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletType: {fileID: 100000, guid: 8554a47ee526c4c6cbc1054c6f12b02d, type: 2}
+  bulletsLayer: PlayerBullets
   speed: 10
   rotationSpeed: 100
   shootContinusly: 1

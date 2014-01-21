@@ -46,6 +46,7 @@ public class Gun : MonoBehaviour {
 
 				if(bullet != null){
 					bullet.layer = LayerMask.NameToLayer(bulletsLayer);
+					bullet.tag = "Bullet";
 				}
 
 				timeFromLastShot = 0;
