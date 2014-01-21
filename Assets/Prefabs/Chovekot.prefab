@@ -97,6 +97,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: 0
+  platformLayers:
+  - platforms
+  - Friends
+  passTroughLayers:
+  - platforms
   moveForce: 365
   maxSpeed: 4
   jumpForce: 12
@@ -112,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletType: {fileID: 100000, guid: 8554a47ee526c4c6cbc1054c6f12b02d, type: 2}
+  bulletsLayer: PlayerBullets
   speed: 10
   rotationSpeed: 100
   shootContinusly: 1

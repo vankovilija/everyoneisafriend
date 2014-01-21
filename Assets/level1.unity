@@ -1414,6 +1414,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: 0
+  platformLayers:
+  - platforms
+  - Friends
+  passTroughLayers:
+  - platforms
   moveForce: 365
   maxSpeed: 4
   jumpForce: 12
@@ -1676,6 +1681,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: 19f73718091714ba3a243200eb9fdae0, type: 2}
+      propertyPath: platformLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 19f73718091714ba3a243200eb9fdae0, type: 2}
+      propertyPath: passTroughLayers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 19f73718091714ba3a243200eb9fdae0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7.94638443
@@ -1703,6 +1716,18 @@ Prefab:
     - target: {fileID: 400002, guid: 19f73718091714ba3a243200eb9fdae0, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 19f73718091714ba3a243200eb9fdae0, type: 2}
+      propertyPath: platformLayers.Array.data[0]
+      value: platforms
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 19f73718091714ba3a243200eb9fdae0, type: 2}
+      propertyPath: platformLayers.Array.data[1]
+      value: Friends
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 19f73718091714ba3a243200eb9fdae0, type: 2}
+      propertyPath: passTroughLayers.Array.data[0]
+      value: platforms
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19f73718091714ba3a243200eb9fdae0, type: 2}
