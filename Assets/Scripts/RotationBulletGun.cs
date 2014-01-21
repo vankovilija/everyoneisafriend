@@ -3,10 +3,13 @@ using System.Collections;
 
 public class RotationBulletGun : Gun
 {
-	override protected void ShootBullet (int direction){
-		Rigidbody2D bullet = Instantiate (bulletType, gun.transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as Rigidbody2D;
-		bullet.velocity = new Vector2(direction * speed, 0f);				
-		bullet.angularVelocity = -1 * direction * rotationSpeed;
+	override protected GameObject ShootBullet (int direction){
+		GameObject bullet = Instantiate (bulletType, gun.transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject;
+		if (bullet.rigidbody2D != null) {
+			bullet.rigidbody2D.velocity = new Vector2 (direction * speed, 0f);				
+			bullet.rigidbody2D.angularVelocity = -1 * direction * rotationSpeed;
+		}
+		return bullet;
 	}
 }
 

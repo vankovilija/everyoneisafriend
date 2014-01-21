@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Gun : MonoBehaviour {
 
-	public Rigidbody2D bulletType;
+	public GameObject bulletType;
+	public string bulletsLayer = "PlayerBullets";
 	public float speed = 2f;
 	public float rotationSpeed = 100f;
 
@@ -22,6 +23,7 @@ public class Gun : MonoBehaviour {
 	void Start () {
 		gun = transform.FindChild (ShootPoint);
 		timeFromLastShot = shootTime;
+		Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("player"), LayerMask.NameToLayer (bulletsLayer));
 	}
 	
 	// Update is called once per frame
@@ -35,10 +37,15 @@ public class Gun : MonoBehaviour {
 
 		if (shooting) {
 			if(timeFromLastShot >= shootTime){
+				GameObject bullet;
 				if (transform.localScale.x > 0) {
-					ShootBullet(1);				
+					bullet = ShootBullet(1);				
 				}else{
-					ShootBullet(-1);
+					bullet = ShootBullet(-1);
+				}
+
+				if(bullet != null){
+					bullet.layer = LayerMask.NameToLayer(bulletsLayer);
 				}
 
 				timeFromLastShot = 0;
@@ -52,7 +59,8 @@ public class Gun : MonoBehaviour {
 		timeFromLastShot += Time.deltaTime;
 	}
 
-	virtual protected void ShootBullet (int direction){
+	virtual protected GameObject ShootBullet (int direction){
 		//to be overriden
+		return null;
 	}
 }

@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10e38424f50447329c7fc700f6a747c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 5000000, guid: 8554a47ee526c4c6cbc1054c6f12b02d, type: 2}
-  speed: 20
+  bulletType: {fileID: 100000, guid: 8554a47ee526c4c6cbc1054c6f12b02d, type: 2}
+  speed: 10
   rotationSpeed: 100
   shootContinusly: 1
   shootTime: .200000003
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6226d4dbd41de41c8982dd404981db66, type: 3}
+  m_Script: {fileID: 11500000, guid: 394b3235b54b44ec7b9737cc31d05283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21200000
