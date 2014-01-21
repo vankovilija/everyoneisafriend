@@ -4,9 +4,9 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour {
 
 	static public string PLAYER_TAG = "Player";
-
-	[HideInInspector]
-	public float jump = 0;
+	
+	internal float jump = 0;
+	internal bool disabled = false;
 
 	public string[] platformLayers;
 	public string[] passTroughLayers;
@@ -109,6 +109,9 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	void UpdatePlayerMoveSpeed(){
+		if (disabled)
+			return;
+
 		Vector2 moveSpeed = new Vector2(axisDirection * maxSpeed, jump * jumpForce);
 		jump = 0;
 

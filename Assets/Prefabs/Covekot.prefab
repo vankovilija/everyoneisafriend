@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400008}
   m_Layer: 9
-  m_Name: Covekot Mario
+  m_Name: Covekot
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.13250923, y: -4.16408443, z: 0}
+  m_LocalPosition: {x: -7.87744713, y: -4.57596731, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -130,7 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983d3cbc814964e69a0873912a981adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: 0
+  platformLayers:
+  - platforms
+  - Friends
+  passTroughLayers:
+  - platforms
   moveForce: 365
   maxSpeed: 4
   jumpForce: 12
@@ -156,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1d300da7074423aad696fb9183ea49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementDisableTime: .0500000007
+  pushTime: .5
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
