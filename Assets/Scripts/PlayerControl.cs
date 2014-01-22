@@ -15,14 +15,15 @@ public class PlayerControl : MonoBehaviour {
 	public float maxSpeed = 10f;	
 	public float jumpForce = 1000f;
 
-	private RaycastHit2D grounded;
+	private RaycastHit2D ground;
+	private bool grounded = true;
 	private RaycastHit2D sky;
 
 	private Vector3 topLeft;
 	private Vector3 topRight;
 	private Vector3 bottomLeft;
 	private Vector3 bottomRight;
-	
+
 	private Vector3 singleUnitHorizontalVector;
 	private Vector3 singleUnitVerticalVector;
 	
@@ -60,7 +61,7 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Jump") && grounded && grounded.collider.gameObject.tag != "Bullet") {
+		if (Input.GetButtonDown ("Jump") && grounded) {
 			jump = 1;
 			GetComponent<AudioSource>().Play();
 		}
@@ -71,31 +72,25 @@ public class PlayerControl : MonoBehaviour {
 		for (int i = 0; i < platformLayers.Length; i++) {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(platformLayers[i]));
 		}
-		grounded = Physics2D.Linecast(transform.position + bottomLeft - singleUnitVerticalVector, transform.position + bottomRight - singleUnitVerticalVector, layerMask); 		
+		Vector3 groundRaycastPoint = transform.position + bottomLeft - singleUnitVerticalVector;
+		Vector3 direction = (groundRaycastPoint - singleUnitVerticalVector) - groundRaycastPoint;
+		ground = Physics2D.Raycast(groundRaycastPoint, direction); 
+		if (!ground) {
+			groundRaycastPoint = transform.position + bottomRight - singleUnitVerticalVector;
+			ground = Physics2D.Raycast (groundRaycastPoint, direction); 
+		}
 
 		layerMask = 0;
 		for (int i = 0; i < passTroughLayers.Length; i++) {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(passTroughLayers[i]));
 		}
-		sky = Physics2D.Linecast(transform.position + topLeft + singleUnitVerticalVector * 2 - singleUnitHorizontalVector, transform.position + topRight + singleUnitVerticalVector * 2 + singleUnitHorizontalVector, layerMask); 		
-					
-		if (sky && sky.collider.gameObject.layer == LayerMask.NameToLayer("platforms")) {
-			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), LayerMask.NameToLayer("platforms"));
-		}
-
-		if (grounded && grounded.collider.gameObject.tag != "Bullet") {
-			MoveSpeedEventDispatcher newDispatcher = grounded.collider.gameObject.GetComponent<MoveSpeedEventDispatcher> ();
-			if (newDispatcher != currentGroundMoveSpeedEventDispatcher) {
-				if (currentGroundMoveSpeedEventDispatcher != null)
-						currentGroundMoveSpeedEventDispatcher.MoveSpeedChange -= OnGroundSpeedChange;
-				currentGroundMoveSpeedEventDispatcher = newDispatcher;
-				if (currentGroundMoveSpeedEventDispatcher != null)
-						currentGroundMoveSpeedEventDispatcher.MoveSpeedChange += OnGroundSpeedChange;
-
-				UpdateGroundVelocity();
-				UpdatePlayerMoveSpeed();
-			}
-			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), LayerMask.NameToLayer("platforms"), false);
+//		sky = Physics2D.Linecast(transform.position + topLeft + singleUnitVerticalVector * 2 - singleUnitHorizontalVector, transform.position + topRight + singleUnitVerticalVector * 2 + singleUnitHorizontalVector, layerMask); 	
+		Vector3 skyRaycastPoint = transform.position + topLeft + singleUnitVerticalVector - singleUnitHorizontalVector;
+		direction = ((skyRaycastPoint + singleUnitVerticalVector) - skyRaycastPoint).normalized;
+		sky = Physics2D.Raycast (skyRaycastPoint, direction);		
+		if (!sky) {
+			skyRaycastPoint = transform.position + topRight + singleUnitVerticalVector + singleUnitHorizontalVector;
+			sky = Physics2D.Raycast (skyRaycastPoint, direction);			
 		}
 
 		leftPressed = Input.GetButton ("Left");
@@ -110,6 +105,30 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		UpdatePlayerMoveSpeed ();
+
+		double distanceToGround = Vector2.Distance (ground.point, groundRaycastPoint);
+
+		if (ground && ground.collider.gameObject.tag != "Bullet" && (distanceToGround < 0.2f || distanceToGround < Mathf.Abs( rigidbody2D.velocity.y * Time.deltaTime ))) {
+			MoveSpeedEventDispatcher newDispatcher = ground.collider.gameObject.GetComponent<MoveSpeedEventDispatcher> ();
+			if (newDispatcher != currentGroundMoveSpeedEventDispatcher) {
+					if (currentGroundMoveSpeedEventDispatcher != null)
+							currentGroundMoveSpeedEventDispatcher.MoveSpeedChange -= OnGroundSpeedChange;
+					currentGroundMoveSpeedEventDispatcher = newDispatcher;
+					if (currentGroundMoveSpeedEventDispatcher != null)
+							currentGroundMoveSpeedEventDispatcher.MoveSpeedChange += OnGroundSpeedChange;
+
+					UpdateGroundVelocity ();
+					UpdatePlayerMoveSpeed ();
+			}
+			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("player"), LayerMask.NameToLayer ("platforms"), false);
+			grounded = true;
+		} else {
+			grounded = false;
+		}
+
+		if (sky && sky.collider.gameObject.layer == LayerMask.NameToLayer("platforms") && Vector2.Distance(sky.point, skyRaycastPoint) < rigidbody2D.velocity.y * Time.deltaTime) {
+			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), LayerMask.NameToLayer("platforms"));
+		}
 				
 		Flip ();
 	}
@@ -133,8 +152,8 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	void UpdateGroundVelocity(){
-		if (grounded && grounded.collider.gameObject.rigidbody2D != null)
-			groundVelocity = grounded.collider.gameObject.rigidbody2D.velocity;
+		if (ground && ground.collider.gameObject.rigidbody2D != null)
+			groundVelocity = ground.collider.gameObject.rigidbody2D.velocity;
 		else
 			groundVelocity = new Vector2 (0f, 0f);
 	}
