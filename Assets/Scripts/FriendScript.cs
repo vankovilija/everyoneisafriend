@@ -44,12 +44,11 @@ public class FriendScript : MonoBehaviour {
 	}
 
 	void goHappy() {
-
+		timeInState = 0;
 		if (state != FriendState.happy) {
 			state = FriendState.happy;
 			movement.moveSpeed = happyMovementSpeed;
 			render.sprite = happyFace;
-			timeInState = 0;
 			if(gameObject.GetComponent<DeathOnTouch>() != null)
 				Destroy(gameObject.GetComponent<DeathOnTouch>());
 			if(gameObject.GetComponent<PushOnTouch>() != null)
@@ -59,12 +58,11 @@ public class FriendScript : MonoBehaviour {
 	}
 
 	void goAngry() {
-
+		timeInState = 0;
 		if (state != FriendState.angry) {
 			state = FriendState.angry;
 			movement.moveSpeed = angryMovementSpeed;
 			render.sprite = angryFace;
-			timeInState = 0;
 			if(gameObject.GetComponent<DeathOnTouch>() != null)
 				Destroy(gameObject.GetComponent<DeathOnTouch>());
 			gameObject.AddComponent<PushOnTouch>();
@@ -73,12 +71,11 @@ public class FriendScript : MonoBehaviour {
 	}
 
 	void goVeryAngry() {
-
+		timeInState = 0;
 		if (state != FriendState.veryAngry) {
 			state = FriendState.veryAngry;
 			movement.moveSpeed = veryAngryMovementSpeed;
 			render.sprite = angryFace;
-			timeInState = 0;
 			if(gameObject.GetComponent<PushOnTouch>() != null)
 				Destroy(gameObject.GetComponent<PushOnTouch>());
 			gameObject.AddComponent<DeathOnTouch>();
