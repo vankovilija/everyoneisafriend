@@ -10,6 +10,7 @@ public class FriendScript : MonoBehaviour {
 
 	public float happyMovementSpeed;
 	public float angryMovementSpeed;
+	public float angryPushForce = 20.0f;
 	public float veryAngryMovementSpeed;
 
 	public float veryAngryTime;
@@ -65,7 +66,7 @@ public class FriendScript : MonoBehaviour {
 			render.sprite = angryFace;
 			if(gameObject.GetComponent<DeathOnTouch>() != null)
 				Destroy(gameObject.GetComponent<DeathOnTouch>());
-			gameObject.AddComponent<PushOnTouch>();
+			gameObject.AddComponent<PushOnTouch>().pushForce = angryPushForce;
 		}
 
 	}
