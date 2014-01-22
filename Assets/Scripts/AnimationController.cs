@@ -2,7 +2,7 @@
 using System.Collections;
 
 public enum AnimationState {
-	idle,
+	noanimation,
 	run,
 	death,
 	spawn
@@ -46,7 +46,7 @@ public class AnimationController : MonoBehaviour {
 	}
 
 	public void Die() {
-		AnimationStart (AnimationState.death);
+		StartAnimation (AnimationState.death);
 	}
 
 	private string NameForState(AnimationState state) {
@@ -58,6 +58,7 @@ public class AnimationController : MonoBehaviour {
 		case AnimationState.run:
 			return "Run";
 		}
+		return "";
 	}
 
 	private void StartAnimation(AnimationState state) {
@@ -71,8 +72,8 @@ public class AnimationController : MonoBehaviour {
 
 	private void EndAnimaiton(AnimationState state) {
 		if (AnimationEnd != null) {
-			AnimationEnd(state);
+			AnimationEnd (state);
 		}
 	}
-
+	
 }

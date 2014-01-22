@@ -25,6 +25,7 @@ public class Health : MonoBehaviour {
 	}
 
 	void respawn() {
+		Debug.Log ("RESPAWN");
 		transform.position = GetComponent<PlayerControl> ().spawnPosition;
 		GetComponent<BoxCollider2D> ().enabled = true;
 	}
