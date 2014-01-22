@@ -50,7 +50,7 @@ public class FriendMovementScript : MonoBehaviour {
 		hitLeft = Physics2D.Linecast (transform.position + topLeft - singleUnitHorizontalVector, transform.position + bottomLeft - singleUnitHorizontalVector, layerMask);
 		hitRight = Physics2D.Linecast (transform.position + topRight + singleUnitHorizontalVector, transform.position + bottomRight + singleUnitHorizontalVector, layerMask);
 
-		if ((direction == 1 && (fallingRight || hitRight)) || (direction == -1 && (fallingLeft || hitLeft)) || Mathf.Abs(previousPositionX - transform.position.x) <= 0.01f) {
+		if ((direction == 1 && (fallingRight || hitRight)) || (direction == -1 && (fallingLeft || hitLeft)) || Mathf.Abs(previousPositionX - transform.position.x) <= 0.001f) {
 			direction *= -1;
 		}
 
