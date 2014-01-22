@@ -60,8 +60,10 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetButtonDown("Jump") && grounded && grounded.collider.gameObject.tag != "Bullet")
+		if (Input.GetButtonDown ("Jump") && grounded && grounded.collider.gameObject.tag != "Bullet") {
 			jump = 1;
+			GetComponent<AudioSource>().Play();
+		}
 	}
 	
 	void FixedUpdate() {
@@ -122,7 +124,7 @@ public class PlayerControl : MonoBehaviour {
 		moveSpeed += groundVelocity;	
 		
 		rigidbody2D.velocity = new Vector2 (moveSpeed.x, moveSpeed.y + rigidbody2D.velocity.y);
-		animationController.RunSpeed (moveSpeed.x);
+		animationController.RunSpeed (axisDirection * maxSpeed);
 	}
 
 	void OnGroundSpeedChange(GameObject groundObject){

@@ -1,40 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum AnimationState {
-	noanimation,
-	run,
-	death,
-	spawn
-}
-
 public class AnimationController : MonoBehaviour {
+
+	public const string DEATH = "Death";
+	public const string RUN = "Run";
+	public const string SPAWN = "Spawn";
 
 	private Animator anim;
 
-	public delegate void EventHandler (AnimationState state);
+	public delegate void EventHandler (string animation);
 	public event EventHandler AnimationStart;
 	public event EventHandler AnimationEnd;
 	
-	private AnimationState currentState;
+	private string currentAnimation;
 
 	// Use this for initialization
 	void Start () {
-		StartAnimation (AnimationState.spawn);
+		StartAnimation (SPAWN);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		switch (currentState) {
-		case AnimationState.death:
+		switch (currentAnimation) {
+		case DEATH:
 			if (!animation.isPlaying) {
-				StartAnimation(AnimationState.spawn);
+				StartAnimation(SPAWN);
 			}
 			break;
-		case AnimationState.spawn:
+		case SPAWN:
 			if (!animation.isPlaying) {
-				StartAnimation(AnimationState.run);
+				StartAnimation(RUN);
 			}
 			break;
 		}
@@ -42,37 +39,26 @@ public class AnimationController : MonoBehaviour {
 	}
 
 	public void RunSpeed(float speed) {
-		animation["Run"].speed = speed;
+		animation[RUN].speed = speed;
 	}
 
 	public void Die() {
-		StartAnimation (AnimationState.death);
+		StartAnimation (DEATH);
 	}
 
-	private string NameForState(AnimationState state) {
-		switch (state) {
-		case AnimationState.death:
-			return "Death";
-		case AnimationState.spawn:
-			return "Spawn";
-		case AnimationState.run:
-			return "Run";
-		}
-		return "";
-	}
-
-	private void StartAnimation(AnimationState state) {
-		EndAnimaiton (currentState);
-		currentState = state;
-		animation.Play (NameForState (state), PlayMode.StopAll);
+	private void StartAnimation(string animationName) {
+		EndAnimaiton (currentAnimation);
+		currentAnimation = animationName;
+		animation.Play ( animationName );
 		if (AnimationStart != null) {
-			AnimationStart(state);
+			AnimationStart ( animationName );
 		}
 	}
 
-	private void EndAnimaiton(AnimationState state) {
+	private void EndAnimaiton(string animationName) {
+		animation.Stop ();
 		if (AnimationEnd != null) {
-			AnimationEnd (state);
+			AnimationEnd ( animationName );
 		}
 	}
 	

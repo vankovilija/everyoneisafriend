@@ -18,14 +18,13 @@ public class Health : MonoBehaviour {
 			OnDeath ();
 	}
 
-	void OnAnimationStart (AnimationState state) {
-		if (state == AnimationState.spawn) {
+	void OnAnimationStart (string animationName) {
+		if (animationName == AnimationController.SPAWN) {
 			respawn();
 		}
 	}
 
 	void respawn() {
-		Debug.Log ("RESPAWN");
 		transform.position = GetComponent<PlayerControl> ().spawnPosition;
 		GetComponent<BoxCollider2D> ().enabled = true;
 	}
