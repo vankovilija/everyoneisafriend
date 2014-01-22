@@ -55,7 +55,7 @@ public class PlayerControl : MonoBehaviour {
 		singleUnitVerticalVector = new Vector3 (0f, 0.1f, 0f);
 		_spawnPosition = new Vector2 (transform.position.x, transform.position.y);
 
-		animationController = GetComponentInChildren<AnimationController> ();
+		animationController = GetComponentInChildren<AnimationController> (); 
 	}
 	
 	// Update is called once per frame
