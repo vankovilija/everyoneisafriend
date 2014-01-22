@@ -17,8 +17,9 @@ public class DeathOnTouch : MonoBehaviour
 
 	void KillObjectIfTagMatch(GameObject obj){
 		if (deathTag == obj.tag) {
-			//kill the object
-			obj.SendMessage("die");
+				//kill the object
+				obj.SendMessage("die");
+
 		}
 	}
 }

@@ -33,6 +33,8 @@ public class PlayerControl : MonoBehaviour {
 	private MoveSpeedEventDispatcher currentGroundMoveSpeedEventDispatcher;
 	private Vector2 groundVelocity = new Vector2(0f,0f);
 
+	private AnimationController animationController;
+
 	private Vector2 _spawnPosition;
 	public Vector2 spawnPosition{
 		get{
@@ -52,6 +54,8 @@ public class PlayerControl : MonoBehaviour {
 		singleUnitHorizontalVector = new Vector3 (0.3f, 0f, 0f);
 		singleUnitVerticalVector = new Vector3 (0f, 0.1f, 0f);
 		_spawnPosition = new Vector2 (transform.position.x, transform.position.y);
+
+		animationController = GetComponentInChildren<AnimationController> ();
 	}
 	
 	// Update is called once per frame
@@ -118,6 +122,7 @@ public class PlayerControl : MonoBehaviour {
 		moveSpeed += groundVelocity;	
 		
 		rigidbody2D.velocity = new Vector2 (moveSpeed.x, moveSpeed.y + rigidbody2D.velocity.y);
+		animationController.RunSpeed (moveSpeed.x);
 	}
 
 	void OnGroundSpeedChange(GameObject groundObject){
