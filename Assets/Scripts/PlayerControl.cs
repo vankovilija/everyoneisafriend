@@ -73,11 +73,13 @@ public class PlayerControl : MonoBehaviour {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(platformLayers[i]));
 		}
 		Vector3 groundRaycastPoint = transform.position + bottomLeft - singleUnitVerticalVector;
+		Vector3 tempPoint = transform.position + bottomRight - singleUnitVerticalVector;
 		Vector3 direction = (groundRaycastPoint - singleUnitVerticalVector) - groundRaycastPoint;
 		ground = Physics2D.Raycast(groundRaycastPoint, direction); 
-		if (!ground) {
-			groundRaycastPoint = transform.position + bottomRight - singleUnitVerticalVector;
-			ground = Physics2D.Raycast (groundRaycastPoint, direction); 
+		RaycastHit2D tempHit = Physics2D.Raycast (tempPoint, direction); 
+		if (Vector2.Distance (groundRaycastPoint, ground.point) > Vector2.Distance (tempHit.point, tempPoint)) {
+			ground = tempHit;
+			groundRaycastPoint = tempPoint;
 		}
 
 		layerMask = 0;
@@ -86,11 +88,13 @@ public class PlayerControl : MonoBehaviour {
 		}
 //		sky = Physics2D.Linecast(transform.position + topLeft + singleUnitVerticalVector * 2 - singleUnitHorizontalVector, transform.position + topRight + singleUnitVerticalVector * 2 + singleUnitHorizontalVector, layerMask); 	
 		Vector3 skyRaycastPoint = transform.position + topLeft + singleUnitVerticalVector - singleUnitHorizontalVector;
+		tempPoint = transform.position + topRight + singleUnitVerticalVector + singleUnitHorizontalVector;
 		direction = ((skyRaycastPoint + singleUnitVerticalVector) - skyRaycastPoint).normalized;
 		sky = Physics2D.Raycast (skyRaycastPoint, direction);		
-		if (!sky) {
-			skyRaycastPoint = transform.position + topRight + singleUnitVerticalVector + singleUnitHorizontalVector;
-			sky = Physics2D.Raycast (skyRaycastPoint, direction);			
+		tempHit = Physics2D.Raycast (tempPoint, direction);			
+		if (Vector2.Distance (skyRaycastPoint, sky.point) > Vector2.Distance (tempHit.point, tempPoint)) {
+			sky = tempHit;
+			skyRaycastPoint = tempPoint;
 		}
 
 		leftPressed = Input.GetButton ("Left");
