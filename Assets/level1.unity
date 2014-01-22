@@ -1678,7 +1678,7 @@ GameObject:
   - 4: {fileID: 992848027}
   - 212: {fileID: 992848026}
   - 61: {fileID: 992848025}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform-rock-02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4023,6 +4023,10 @@ Prefab:
     - target: {fileID: 400000, guid: 8753ef464a8674940a8fdec4fb6d7354, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8753ef464a8674940a8fdec4fb6d7354, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8753ef464a8674940a8fdec4fb6d7354, type: 2}
