@@ -15,13 +15,20 @@ public class FriendScript : MonoBehaviour {
 
 	public float veryAngryTime;
 
-	private enum FriendState {
-		happy,
-		angry,
-		veryAngry
-	};
+	public delegate void EventHandler (GameObject friend, FriendState state);
+	public event EventHandler ChangeState;
 
-	private FriendState state;
+	private FriendState _state;
+	internal FriendState state{
+		get{
+			return _state;
+		}
+		set {
+			if(ChangeState != null)
+				ChangeState(gameObject, value);
+			_state = value;
+		}
+	}
 	private float timeInState;
 
 	private SpriteRenderer render;
