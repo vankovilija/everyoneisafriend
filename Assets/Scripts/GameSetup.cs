@@ -24,6 +24,11 @@ public class GameSetup : MonoBehaviour {
 
 	}
 
+	void OnGUI(){
+		GUI.Label (new Rect (10, 10, 200, 50), "Happy friends: " + happyFriends.Count);
+		GUI.Label (new Rect (10, 22, 200, 50), "Lifes lost: " + lifesLost);
+	}
+
 	void PlayerDeathHandler(){
 		lifesLost ++;
 		Debug.Log ("Lifes lost: " + lifesLost);
