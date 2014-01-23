@@ -86,7 +86,7 @@ public class PlayerControl : MonoBehaviour {
 		for (int i = 0; i < passTroughLayers.Length; i++) {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(passTroughLayers[i]));
 		}
-//		sky = Physics2D.Linecast(transform.position + topLeft + singleUnitVerticalVector * 2 - singleUnitHorizontalVector, transform.position + topRight + singleUnitVerticalVector * 2 + singleUnitHorizontalVector, layerMask); 	
+
 		Vector3 skyRaycastPoint = transform.position + topLeft + singleUnitVerticalVector - singleUnitHorizontalVector;
 		tempPoint = transform.position + topRight + singleUnitVerticalVector + singleUnitHorizontalVector;
 		direction = ((skyRaycastPoint + singleUnitVerticalVector) - skyRaycastPoint).normalized;

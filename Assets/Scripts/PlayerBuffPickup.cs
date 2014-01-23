@@ -26,7 +26,8 @@ public class PlayerBuffPickup : MonoBehaviour {
 			newGunType = cupcakeGun;
 		}
 		GameObject newGun = Instantiate (newGunType, currentGun.transform.position, currentGun.transform.rotation) as GameObject;
-		newGun.transform.parent = currentGun.transform.parent;
+		newGun.transform.parent = transform;
+		newGun.transform.localScale = new Vector3(1f,1f,1f);
 		Destroy(currentGun);
 		currentGun = newGun;
 
