@@ -74,6 +74,7 @@ MonoBehaviour:
   foodType: 0
   happyMovementSpeed: 2
   angryMovementSpeed: 4
+  angryPushForce: 20
   veryAngryMovementSpeed: 8
   veryAngryTime: 2
 --- !u!114 &11400002
