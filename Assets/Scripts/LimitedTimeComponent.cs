@@ -8,20 +8,24 @@ public class LimitedTimeComponent : MonoBehaviour {
 
 	private float timeSpend;
 
-	public LimitedTimeComponent(float timeLimit, MonoBehaviour restoreScript) {
+	public void init(float timeLimit, MonoBehaviour restoreScript) {
 		this.timeLimit = timeLimit;
-		if (restoreScript is LimitedTimeComponent) {
-			restoreScript = (restoreScript as LimitedTimeComponent).restoreScript;
+		if (restoreScript) {
+			if (restoreScript is LimitedTimeComponent) {
+				restoreScript = (restoreScript as LimitedTimeComponent).restoreScript;
+			}
+			restoreScript.enabled = false;
 		}
 		this.restoreScript = restoreScript;
-		restoreScript.enabled = false;
 		timeSpend = 0;
 	}
 
-	void Update () {
+	public void Update () {
 		timeSpend += Time.deltaTime;
 		if (timeSpend >= timeLimit) {
-			restoreScript.enabled = true;
+			if (restoreScript) {
+				restoreScript.enabled = true;
+			}
 			Destroy(this);
 		}
 	}
