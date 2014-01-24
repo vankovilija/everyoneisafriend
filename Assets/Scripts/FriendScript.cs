@@ -32,12 +32,12 @@ public class FriendScript : MonoBehaviour {
 	private float timeInState;
 
 	private SpriteRenderer render;
-	private FriendMovementScript movement;
+	private NPCMovementScript movement;
 
 	// Use this for initialization
 	void Start () {
 		render = GetComponent<SpriteRenderer> ();
-		movement = GetComponent<FriendMovementScript> ();
+		movement = GetComponent<NPCMovementScript> ();
 		goAngry ();
 	}
 	
