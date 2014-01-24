@@ -12,6 +12,7 @@ GameObject:
   - 92: {fileID: 9200000}
   - 124: {fileID: 12400000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Main Camera 1
   m_TagString: MainCamera
@@ -46,7 +47,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: .00999999978
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -83,6 +84,45 @@ MonoBehaviour:
   bottomBound: {fileID: 0}
   topBound: {fileID: 0}
   smoothTime: .300000012
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbeef2237d26f423ab8ae46ed3ddbbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhenToRender: 0
+  Initialized: 0
+  InitParams:
+    TheASVersion: 1
+    InitVideo: 0
+    InitSound: 1
+    UseDynamicShaderCompilation: 1
+    TheVideoSoundSystem: 0
+    IsInitIME: 0
+    AmpProfiling: 0
+    ProgLoading: 1
+    TheFontCacheConfig:
+      TextureHeight: 1024
+      TextureWidth: 1024
+      MaxNumTextures: 1
+      MaxSlotHeight: 48
+    SetFontCacheParams: 1
+    IsEnableDynamicCache: 1
+    TheFontPackParams:
+      NominalSize: 32
+      PadPixels: 2
+      TextureWidth: 512
+      TextureHeight: 512
+    SetFontPackParams: 1
+    GlyphCountLimit: 1000
+    SoundVolume: 10
+    IsMute: 0
+  SWF_File: FlashMenu.swf
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

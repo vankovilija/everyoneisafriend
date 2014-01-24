@@ -74,10 +74,11 @@ public class FriendMovementScript : MonoBehaviour {
 		// Multiply the player's x local scale by -1.
 		Vector3 theScale = transform.localScale;
 		
-		if (direction > 0)
+		if (direction > 0 && theScale.x != -1) {
 			theScale.x = -1;
-		else if(direction < 0)
+		} else if (direction < 0 && theScale.x != 1) {
 			theScale.x = 1;
+		}
 		
 		transform.localScale = theScale;
 	}

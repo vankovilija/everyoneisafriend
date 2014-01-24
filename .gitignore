@@ -64,3 +64,14 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# ========= #
+# Scaleform #
+# ========= #
+
+Assets/Scaleform/
+Assets/README/
+Assets/materials/
+Assets/meshes/
+Assets/Plugins/
+Assets/textures/
