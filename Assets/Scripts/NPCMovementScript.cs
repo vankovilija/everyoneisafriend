@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FriendMovementScript : MonoBehaviour {
+public class NPCMovementScript : MonoBehaviour {
 
 	public float moveSpeed = 5.0f;
 	public string[] platformLayers;
@@ -25,6 +25,8 @@ public class FriendMovementScript : MonoBehaviour {
 
 	private float previousPositionX;
 
+	private bool walking = true;
+
 	// Use this for initialization
 	void Start () {
 		BoxCollider2D colider = GetComponent<BoxCollider2D> ();
@@ -36,9 +38,23 @@ public class FriendMovementScript : MonoBehaviour {
 		singleUnitHorizontalVector = new Vector3 (0.3f, 0f, 0f);
 		singleUnitVerticalVector = new Vector3 (0f, 0.1f, 0f);
 	}
+
+	public void StopWalking(){
+		if (!walking) return;
+		walking = false;
+		rigidbody2D.velocity = new Vector2(0f,0f);
+	}
+	
+	public void ContinueWalking(){
+		if (walking) return;
+		walking = true;
+		rigidbody2D.velocity = previousVelocity;
+	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+		if (!walking) return;
 
 		int layerMask = 0;
 		for (int i = 0; i < platformLayers.Length; i++) {

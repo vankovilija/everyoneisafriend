@@ -4,8 +4,7 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour {
 
 	static public string PLAYER_TAG = "Player";
-	
-	internal float jump = 0;
+
 	internal bool disabled = false;
 
 	public string[] platformLayers;
@@ -15,8 +14,8 @@ public class PlayerControl : MonoBehaviour {
 	public float maxSpeed = 10f;	
 	public float jumpForce = 1000f;
 
-	private RaycastHit2D ground;
-	private bool grounded = true;
+	internal RaycastHit2D ground;
+	internal bool grounded = true;
 	private RaycastHit2D sky;
 
 	private Vector3 topLeft;
@@ -61,10 +60,7 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Jump") && grounded) {
-			jump = 1;
-			GetComponent<AudioSource>().Play();
-		}
+
 	}
 	
 	void FixedUpdate() {
@@ -146,12 +142,11 @@ public class PlayerControl : MonoBehaviour {
 		if (disabled)
 			return;
 
-		Vector2 moveSpeed = new Vector2(axisDirection * maxSpeed, jump * jumpForce);
-		jump = 0;
+		Vector2 moveSpeed = new Vector2(axisDirection * maxSpeed, 0f);
 
 		moveSpeed += groundVelocity;	
 		
-		rigidbody2D.velocity = new Vector2 (moveSpeed.x, moveSpeed.y + rigidbody2D.velocity.y);
+		rigidbody2D.velocity = new Vector2 (moveSpeed.x, rigidbody2D.velocity.y);
 		animationController.RunSpeed (axisDirection * maxSpeed);
 	}
 
