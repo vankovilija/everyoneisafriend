@@ -18,7 +18,7 @@ public class MenuCamera : SFCamera {
 
 	new public void Update()
 	{
-		CreateUI ();
+//		CreateUI ();
 		base.Update ();
 	}
 

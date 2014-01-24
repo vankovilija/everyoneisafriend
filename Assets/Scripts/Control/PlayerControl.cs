@@ -68,8 +68,13 @@ public class PlayerControl : MonoBehaviour {
 		for (int i = 0; i < platformLayers.Length; i++) {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(platformLayers[i]));
 		}
-		Vector3 groundRaycastPoint = transform.position + bottomLeft - singleUnitVerticalVector;
-		Vector3 tempPoint = transform.position + bottomRight - singleUnitVerticalVector;
+		Vector3 bottomLeftScaled = new Vector3 (bottomLeft.x * transform.lossyScale.x, bottomLeft.y * transform.lossyScale.y, bottomLeft.z * transform.lossyScale.z);
+		Vector3 bottomRightScaled = new Vector3 (bottomRight.x * transform.lossyScale.x, bottomRight.y * transform.lossyScale.y, bottomRight.z * transform.lossyScale.z);
+		Vector3 topRightScaled = new Vector3 (topRight.x * transform.lossyScale.x, topRight.y * transform.lossyScale.y, topRight.z * transform.lossyScale.z);
+		Vector3 topLeftScaled = new Vector3 (topLeft.x * transform.lossyScale.x, topLeft.y * transform.lossyScale.y, topLeft.z * transform.lossyScale.z);
+
+		Vector3 groundRaycastPoint = transform.position + bottomLeftScaled - singleUnitVerticalVector;
+		Vector3 tempPoint = transform.position + bottomRightScaled - singleUnitVerticalVector;
 		Vector3 direction = (groundRaycastPoint - singleUnitVerticalVector) - groundRaycastPoint;
 		ground = Physics2D.Raycast(groundRaycastPoint, direction); 
 		RaycastHit2D tempHit = Physics2D.Raycast (tempPoint, direction); 
@@ -83,8 +88,8 @@ public class PlayerControl : MonoBehaviour {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(passTroughLayers[i]));
 		}
 
-		Vector3 skyRaycastPoint = transform.position + topLeft + singleUnitVerticalVector - singleUnitHorizontalVector;
-		tempPoint = transform.position + topRight + singleUnitVerticalVector + singleUnitHorizontalVector;
+		Vector3 skyRaycastPoint = transform.position + topLeftScaled + singleUnitVerticalVector - singleUnitHorizontalVector;
+		tempPoint = transform.position + topRightScaled + singleUnitVerticalVector + singleUnitHorizontalVector;
 		direction = ((skyRaycastPoint + singleUnitVerticalVector) - skyRaycastPoint).normalized;
 		sky = Physics2D.Raycast (skyRaycastPoint, direction);		
 		tempHit = Physics2D.Raycast (tempPoint, direction);			
