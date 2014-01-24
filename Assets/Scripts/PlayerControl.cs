@@ -72,8 +72,8 @@ public class PlayerControl : MonoBehaviour {
 		for (int i = 0; i < platformLayers.Length; i++) {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(platformLayers[i]));
 		}
-		Vector3 groundRaycastPoint = transform.position + bottomLeft - singleUnitVerticalVector;
-		Vector3 tempPoint = transform.position + bottomRight - singleUnitVerticalVector;
+		Vector3 groundRaycastPoint = transform.position + (bottomLeft * transform.localScale) - singleUnitVerticalVector;
+		Vector3 tempPoint = transform.position + (bottomRight * transform.localScale) - singleUnitVerticalVector;
 		Vector3 direction = (groundRaycastPoint - singleUnitVerticalVector) - groundRaycastPoint;
 		ground = Physics2D.Raycast(groundRaycastPoint, direction); 
 		RaycastHit2D tempHit = Physics2D.Raycast (tempPoint, direction); 
@@ -87,8 +87,8 @@ public class PlayerControl : MonoBehaviour {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(passTroughLayers[i]));
 		}
 
-		Vector3 skyRaycastPoint = transform.position + topLeft + singleUnitVerticalVector - singleUnitHorizontalVector;
-		tempPoint = transform.position + topRight + singleUnitVerticalVector + singleUnitHorizontalVector;
+		Vector3 skyRaycastPoint = transform.position + (topLeft * transform.localScale) + singleUnitVerticalVector - singleUnitHorizontalVector;
+		tempPoint = transform.position + (topRight * transform.localScale) + singleUnitVerticalVector + singleUnitHorizontalVector;
 		direction = ((skyRaycastPoint + singleUnitVerticalVector) - skyRaycastPoint).normalized;
 		sky = Physics2D.Raycast (skyRaycastPoint, direction);		
 		tempHit = Physics2D.Raycast (tempPoint, direction);			
