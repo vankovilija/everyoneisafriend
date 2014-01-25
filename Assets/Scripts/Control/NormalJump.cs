@@ -3,8 +3,10 @@ using System.Collections;
 
 public class NormalJump : Jump {
 
-	protected override void init() {
-		jumpForce = 12.0f;
+	protected override void Setup() {
+
+
+
 	}
 
 	protected override void DoJump() {

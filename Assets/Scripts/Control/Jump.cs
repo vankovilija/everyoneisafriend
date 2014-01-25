@@ -12,12 +12,12 @@ public abstract class Jump : LimitedTimeComponent {
 	void Start () {
 
 		player = GetComponent<PlayerControl> ();
-		init();
+		Setup();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	new void Update () {
+		base.Update ();
 		if (Input.GetButtonDown ("Jump") && player.grounded) {
 			jump = true;
 		}
@@ -32,6 +32,6 @@ public abstract class Jump : LimitedTimeComponent {
 
 	}
 
-	protected abstract void init();
+	protected abstract void Setup();
 	protected abstract void DoJump();
 }

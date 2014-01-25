@@ -10,7 +10,7 @@ public class PlayerScale : LimitedTimeComponent {
 
 	}
 
-	void Update () {
+	new void Update () {
 		base.Update ();
 		if (!interpolatorScale.Finished ()) {
 			interpolatorScale.Update(Time.deltaTime);
