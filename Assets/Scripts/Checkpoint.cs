@@ -5,16 +5,18 @@ public class Checkpoint : MonoBehaviour {
 
 	public string playerTag = "Player";
 	public int orderId = 0;
-	public Sprite disableSprite;
+	public GameObject flame;
 
 	private bool avaible = true;
 	private GameSetup gameSetup;
+	private Transform flamePosition;
 
 	void Start () {
 		gameSetup = GameObject.Find("_GM").GetComponent<GameSetup> ();
 		if (gameSetup) {
 			gameSetup.CheckpointReach += CheckpointReach;
 		}
+		flamePosition = transform.FindChild("FlamePosition").transform;
 	}
 
 	private void CheckpointReach(int id) {
@@ -24,10 +26,12 @@ public class Checkpoint : MonoBehaviour {
 	}
 
 	private void DisableCheckpoint() {
+		if (avaible) {
 		avaible = false;
-		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer> ();
-		if (spriteRenderer) {
-			spriteRenderer.sprite = disableSprite;
+			if (flame) {
+				GameObject flameObject = Instantiate(flame, flamePosition.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+				flameObject.transform.parent = gameObject.transform;
+			}
 		}
 	}
 	
