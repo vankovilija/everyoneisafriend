@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Jump : MonoBehaviour {
+public abstract class Jump : LimitedTimeComponent {
 
 	private PlayerControl player;
 	private bool jump = false;
@@ -12,6 +12,7 @@ public class Jump : MonoBehaviour {
 	void Start () {
 
 		player = GetComponent<PlayerControl> ();
+		init();
 	}
 	
 	// Update is called once per frame
@@ -25,12 +26,12 @@ public class Jump : MonoBehaviour {
 	void FixedUpdate(){
 
 		if (jump) {
-
-			GetComponent<AudioSource>().Play();
-
-			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpForce);
-
+			DoJump ();
 			jump = false;
 		}
+
 	}
+
+	protected abstract void init();
+	protected abstract void DoJump();
 }
