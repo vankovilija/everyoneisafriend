@@ -1317,7 +1317,7 @@ MonoBehaviour:
   upTime: .699999988
   pushTime: .300000012
   flySpeed: 5
-  fallSpeed: -.300000012
+  fallSpeed: 1
 --- !u!114 &1898133971
 MonoBehaviour:
   m_ObjectHideFlags: 0
