@@ -64,9 +64,9 @@ public class PlayerControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		int layerMask = 0;
+		int layerMaskGround = 0;
 		for (int i = 0; i < platformLayers.Length; i++) {
-			layerMask = layerMask | (1 << LayerMask.NameToLayer(platformLayers[i]));
+			layerMaskGround = layerMaskGround | (1 << LayerMask.NameToLayer(platformLayers[i]));
 		}
 		Vector3 bottomLeftScaled = new Vector3 (bottomLeft.x * transform.lossyScale.x, bottomLeft.y * transform.lossyScale.y, bottomLeft.z * transform.lossyScale.z);
 		Vector3 bottomRightScaled = new Vector3 (bottomRight.x * transform.lossyScale.x, bottomRight.y * transform.lossyScale.y, bottomRight.z * transform.lossyScale.z);
@@ -83,7 +83,7 @@ public class PlayerControl : MonoBehaviour {
 			groundRaycastPoint = tempPoint;
 		}
 
-		layerMask = 0;
+		int layerMask = 0;
 		for (int i = 0; i < passTroughLayers.Length; i++) {
 			layerMask = layerMask | (1 << LayerMask.NameToLayer(passTroughLayers[i]));
 		}
@@ -125,13 +125,16 @@ public class PlayerControl : MonoBehaviour {
 					UpdateGroundVelocity ();
 					UpdatePlayerMoveSpeed ();
 			}
-			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("player"), LayerMask.NameToLayer ("platforms"), false);
-			grounded = true;
+			if((layerMaskGround >> ground.collider.gameObject.layer) % 2 == 1){
+				Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("player"), LayerMask.NameToLayer ("platforms"), false);
+				grounded = true;
+			}else
+				grounded = false;
 		} else {
 			grounded = false;
 		}
 
-		if (sky && sky.collider.gameObject.layer == LayerMask.NameToLayer("platforms") && Vector2.Distance(sky.point, skyRaycastPoint) < rigidbody2D.velocity.y * Time.deltaTime) {
+		if (sky && sky.collider.gameObject.layer == LayerMask.NameToLayer("platforms") && (layerMask >> sky.collider.gameObject.layer) % 2 == 1 && Vector2.Distance(sky.point, skyRaycastPoint) < rigidbody2D.velocity.y * Time.deltaTime) {
 			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), LayerMask.NameToLayer("platforms"));
 		}
 				
