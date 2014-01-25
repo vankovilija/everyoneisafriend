@@ -152,6 +152,8 @@ public class PlayerControl : MonoBehaviour {
 		
 		rigidbody2D.velocity = new Vector2 (moveSpeed.x, rigidbody2D.velocity.y);
 		anim.SetFloat ("Speed", Mathf.Abs(moveSpeed.x));
+		anim.SetFloat ("VerticalSpeed", rigidbody2D.velocity.y);
+		anim.SetBool ("Grounded", grounded);
 
 	}
 

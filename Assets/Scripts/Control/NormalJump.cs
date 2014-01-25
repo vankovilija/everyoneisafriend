@@ -8,12 +8,7 @@ public class NormalJump : Jump {
 	public override void init(float timeActive) {
 		
 	}
-	void Update(){
-		base.Update ();
-		if(rigidbody2D.velocity.y < 0 && !player.grounded)
-			player.GetComponentInChildren<Animator>().SetTrigger("JumpDown");
 
-	}
 	protected override void Setup() {
 
 	}

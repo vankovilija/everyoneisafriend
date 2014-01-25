@@ -24,7 +24,7 @@ public abstract class Jump : LimitedTimeComponent {
 		}
 	}
 
-	void FixedUpdate(){
+	public void FixedUpdate(){
 
 		if (jump) {
 			player.GetComponentInChildren<Animator>().SetTrigger("JumpUp");

@@ -9,13 +9,7 @@ public class SuperJump : Jump {
 		cloud = GetComponent<NormalJump> ().cloud;
 
 	}	
-
-	void Update(){
-		base.Update ();
-		if(rigidbody2D.velocity.y < 0 && !player.grounded)
-			player.GetComponentInChildren<Animator>().SetTrigger("JumpDown");
-		
-	}
+	
 	protected override void Setup() {
 
 		jumpForce = 20;
