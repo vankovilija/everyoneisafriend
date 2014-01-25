@@ -4,6 +4,8 @@ using System.Collections;
 public class NPCMovementScript : MonoBehaviour {
 
 	public float moveSpeed = 5.0f;
+	public int minTimer = 1;
+	public int maxTimer = 5;
 	public string[] platformLayers;
 
 	private Vector3 topLeft;
@@ -18,8 +20,13 @@ public class NPCMovementScript : MonoBehaviour {
 	private bool fallingRight;
 	private bool hitLeft;
 	private bool hitRight;
+	private bool timing = false;
+	private bool changeDirection = false;
+	private bool settingUp = true;
 
 	private int direction = 1;
+	private int wait = 1;
+	private float coutdown;
 
 	private Vector2 previousVelocity;
 
@@ -50,7 +57,19 @@ public class NPCMovementScript : MonoBehaviour {
 		walking = true;
 		rigidbody2D.velocity = previousVelocity;
 	}
+
+	void Update(){
 	
+		if (timing) {
+
+			coutdown -= Time.deltaTime;
+			if(coutdown <= 0){
+				changeDirection = true;
+				timing = false;
+				wait = 1;
+			}
+		}
+	}
 	// Update is called once per frame
 	void FixedUpdate () {
 
@@ -66,11 +85,24 @@ public class NPCMovementScript : MonoBehaviour {
 		hitLeft = Physics2D.Linecast (transform.position + topLeft - singleUnitHorizontalVector, transform.position + bottomLeft - singleUnitHorizontalVector, layerMask);
 		hitRight = Physics2D.Linecast (transform.position + topRight + singleUnitHorizontalVector, transform.position + bottomRight + singleUnitHorizontalVector, layerMask);
 
-		if ((direction == 1 && (fallingRight || hitRight)) || (direction == -1 && (fallingLeft || hitLeft)) || Mathf.Abs(previousPositionX - transform.position.x) <= 0.001f) {
+		if (settingUp && !fallingLeft && !fallingRight)
+				settingUp = false;
+
+		if (changeDirection) {
 			direction *= -1;
+			changeDirection = false;
+		}else{
+			if (!settingUp && ((direction == 1 && (fallingRight || hitRight)) || (direction == -1 && (fallingLeft || hitLeft)) || Mathf.Abs(previousPositionX - transform.position.x) <= 0.001f)) {
+
+				if(!timing){
+					StartTimer(Random.Range(minTimer,maxTimer));
+					wait = 0;
+				}
+
+			}
 		}
 
-		Vector2 newVelocity = new Vector2 (moveSpeed * direction, rigidbody2D.velocity.y);
+		Vector2 newVelocity = new Vector2 (moveSpeed * direction * wait, rigidbody2D.velocity.y);
 		rigidbody2D.velocity = newVelocity;
 
 		if (previousVelocity != newVelocity) {
@@ -97,5 +129,11 @@ public class NPCMovementScript : MonoBehaviour {
 		}
 		
 		transform.localScale = theScale;
+	}
+
+	void StartTimer(float time){
+
+		timing = true;
+		coutdown = time;
 	}
 }

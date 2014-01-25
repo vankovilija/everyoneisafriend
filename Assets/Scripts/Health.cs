@@ -6,8 +6,13 @@ public class Health : MonoBehaviour {
 	public delegate void EventHandler ();
 	public event EventHandler OnDeath;
 
-	void Start() {
-		GetComponentInChildren<AnimationController> ().AnimationStart += OnAnimationStart;
+	private bool inited = false;
+
+	void Update() {
+		if (!inited) {
+			GetComponentInChildren<AnimationController> ().AnimationStart += OnAnimationStart;
+			inited = true;
+		}
 	}
 
 	void die() {

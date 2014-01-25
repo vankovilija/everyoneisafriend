@@ -43,6 +43,14 @@ TagManager:
     userID: 1
     uniqueID: 786401637
     locked: 0
+  - name: Foreground
+    userID: 3
+    uniqueID: 1713916555
+    locked: 0
+  - name: NPC
+    userID: 2
+    uniqueID: 2715914445
+    locked: 0
   - name: Default
     userID: 0
     uniqueID: 0
