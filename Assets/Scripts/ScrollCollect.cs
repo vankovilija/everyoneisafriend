@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ScrollCollect : MonoBehaviour {
 
+	public int scrollID = 1;
 	private GameSetup gameSetup;
 
 	// Use this for initialization
@@ -18,7 +19,7 @@ public class ScrollCollect : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D obj){
 	
 		if (obj.tag == "Player") {
-			gameSetup.CountScrolls();
+			gameSetup.PickupScroll(gameObject);
 			Destroy(this.gameObject);
 		}
 	}
