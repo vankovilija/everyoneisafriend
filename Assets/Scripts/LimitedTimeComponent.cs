@@ -22,7 +22,7 @@ public class LimitedTimeComponent : MonoBehaviour {
 
 	public void Update () {
 		timeSpend += Time.deltaTime;
-		if (timeSpend >= timeLimit) {
+		if (timeLimit > 0 && timeSpend >= timeLimit) {
 			if (restoreScript) {
 				restoreScript.enabled = true;
 			}

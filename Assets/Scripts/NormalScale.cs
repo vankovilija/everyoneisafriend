@@ -24,7 +24,7 @@ public class NormalScale : MonoBehaviour {
 			Vector3 endScale = transform.localScale;
 
 			bounds = GameObjectBounds.GetBounds(gameObject);
-			float offset = ((normalScale * bounds.size.y / transform.localScale.y) - bounds.size.y) *( 0.5f - bounds.center.y + transform.position.y);
+			float offset = ((normalScale * bounds.size.y / transform.localScale.y) - bounds.size.y) * (0.5f - bounds.center.y + transform.position.y);
 			endPosition = new Vector3(transform.position.x, transform.position.y + offset, transform.position.z);
 			
 			endScale = new Vector3(Mathf.Sign(transform.localScale.x) * normalScale, Mathf.Sign(transform.localScale.y) * normalScale, transform.localScale.z);
