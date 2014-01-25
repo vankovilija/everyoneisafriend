@@ -14,7 +14,10 @@ public abstract class Scale : LimitedTimeComponent {
 
 	private float oldY;
 
+	private PlayerControl playerControl;
+
 	void Start () {
+		playerControl = GetComponent<PlayerControl> ();
 		interpolatorPosition = new VectorInterpolator ();
 		interpolatorScale = new VectorInterpolator ();
 		Setup ();
@@ -45,12 +48,15 @@ public abstract class Scale : LimitedTimeComponent {
 			interpolatorScale.Update(Time.deltaTime);
 			interpolatorPosition.Update(Time.deltaTime);
 
+
 			float offsetY = interpolatorPosition.CurrentPosition ().y - oldY;
 			Vector3 newScale = interpolatorScale.CurrentPosition ();
 			if (Mathf.Sign(newScale.x) != Mathf.Sign(transform.localScale.x))
 				newScale.x *= -1;
 			transform.localScale = newScale;
-			transform.position += new Vector3(0f, offsetY, 0f);
+
+			if (!playerControl.grounded)
+				transform.position += new Vector3(0f, offsetY, 0f);
 
 			 
 			CameraScale cameraScale = Camera.main.GetComponent<CameraScale> ();
