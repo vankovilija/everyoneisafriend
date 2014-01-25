@@ -23,6 +23,13 @@ public class DialogNPC : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (Input.GetKey(KeyCode.A) && hasDialog) {
+			
+			player.GetComponent<PlayerActivatePowerup> ().ActivatePowerup(Powerups.GetPowerup(NPCPowerUp), NPCPowerUpTime); 
+			
+		}
+
 		Vector3 direction = (player.transform.position - transform.position).normalized;
 
 		Vector3 rayPoint = transform.position;
@@ -34,7 +41,7 @@ public class DialogNPC : MonoBehaviour {
 		BoxCollider2D npcColider = GetComponent<BoxCollider2D> ();
 		BoxCollider2D playerColider = player.GetComponent<BoxCollider2D> ();
 
-		if(hitToPlayer.collider.tag != PlayerControl.PLAYER_TAG){
+		if(hitToPlayer.collider != null && hitToPlayer.collider.tag != PlayerControl.PLAYER_TAG){
 			Rect NPCBound = new Rect (transform.position.x + npcColider.center.x - (npcColider.size.x * 0.5f), transform.position.y + npcColider.center.y - (npcColider.size.y * 0.5f),
 			                          npcColider.size.x, npcColider.size.y);
 			
@@ -68,7 +75,7 @@ public class DialogNPC : MonoBehaviour {
 		rayPoint.x += sign * coliderWidth;
 		RaycastHit2D hitToNPC = Physics2D.Raycast(rayPoint, direction);
 
-		if (hitToNPC.collider.gameObject != gameObject) {
+		if (hitToNPC.collider != null && hitToNPC.collider.gameObject != gameObject) {
 			Rect NPCBound = new Rect (transform.position.x + npcColider.center.x - (npcColider.size.x * 0.5f), transform.position.y + npcColider.center.y - (npcColider.size.y * 0.5f),
 			                          npcColider.size.x, npcColider.size.y);
 			
@@ -132,12 +139,6 @@ public class DialogNPC : MonoBehaviour {
 					hasDialog = false;
 				}
 			}
-		}
-
-		if (Input.GetKeyDown(KeyCode.A) && hasDialog) {
-
-			player.GetComponent<PlayerActivatePowerup> ().ActivatePowerup(Powerups.GetPowerup(NPCPowerUp), NPCPowerUpTime); 
-
 		}
 
 	}
