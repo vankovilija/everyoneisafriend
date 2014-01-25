@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Fly : MonoBehaviour {
+public class Fly : LimitedTimeComponent {
 
 	private PlayerControl player;
 	private bool fly = false;
@@ -9,10 +9,10 @@ public class Fly : MonoBehaviour {
 	public float flySpeed;
 	public float fallSpeed;
 
-	public Fly(){
-
-		flySpeed = 2f;
-		fallSpeed = -0.3f;
+	void init(float timeLimit, MonoBehaviour restoreScript, float flySpeed, float fallSpeed){
+		base.init(timeLimit, restoreScript);
+		this.flySpeed = flySpeed;
+		this.fallSpeed = fallSpeed;
 	}
 
 	// Use this for initialization
@@ -22,7 +22,7 @@ public class Fly : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		base.Update ();
 	}
 
 	void FixedUpdate(){
