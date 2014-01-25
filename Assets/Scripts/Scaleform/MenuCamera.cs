@@ -29,12 +29,12 @@ public class MenuCamera : SFCamera {
 
 	private void CreateUI()
 	{
-//		if (menu == null) {
-//			SFMovieCreationParams creationParams = CreateMovieCreationParams(MENU_File);
-//	     	creationParams.TheScaleModeType  = ScaleModeType.SM_ShowAll;
-//			creationParams.IsInitFirstFrame = false;
-//			menu = new FlashMenu(this, SFMgr, creationParams);
-//		}
+		if (menu == null) {
+			SFMovieCreationParams creationParams = CreateMovieCreationParams(MENU_File);
+	     	creationParams.TheScaleModeType  = ScaleModeType.SM_ShowAll;
+			creationParams.IsInitFirstFrame = false;
+			menu = new FlashMenu(this, SFMgr, creationParams);
+		}
 
 		if (dialogs == null) {
 			SFMovieCreationParams creationParams = CreateMovieCreationParams(DIALOGS_File);

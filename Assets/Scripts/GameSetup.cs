@@ -20,6 +20,7 @@ public class GameSetup : MonoBehaviour {
 		if (CheckpointReach != null) {
 			CheckpointReach(orderId);
 		}
+		mainCam = Camera.main;
 	}
 
 
@@ -33,11 +34,6 @@ public class GameSetup : MonoBehaviour {
 			onFriendStateChange(friends[i].gameObject, friends[i].state);
 		}
 
-	}
-
-	void OnGUI(){
-		GUI.Label (new Rect (10, 10, 200, 50), "Happy friends: " + happyFriends.Count);
-		GUI.Label (new Rect (10, 22, 200, 50), "Lifes lost: " + lifesLost);
 	}
 
 	void PlayerDeathHandler(){
@@ -58,7 +54,8 @@ public class GameSetup : MonoBehaviour {
 		Debug.Log ("happy friends: " + happyFriends.Count + " angry friends: " + angryFriends.Count);
 	}
 
-	public void CountScrolls(){
+	public void PickupScroll(GameObject scrollObject){
 		scrolls++;
+		mainCam.GetComponent<MenuCamera> ().menu.pickupScroll (scrollObject.GetComponent<ScrollCollect>().scrollID);
 	}
 }

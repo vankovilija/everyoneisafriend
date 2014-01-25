@@ -34,4 +34,10 @@ public class FlashMenu : Movie {
 		info.Visible = true;
 		theMovie.SetDisplayInfo (info);
 	}
+
+	public void pickupScroll(int scrollID){
+		object[] p = new object[1];
+		p [0] = scrollID;
+		theMovie.Invoke ("pickupScroll", p);
+	}
 }
