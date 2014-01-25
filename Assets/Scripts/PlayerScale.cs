@@ -23,19 +23,25 @@ public class PlayerScale : LimitedTimeComponent {
 	public void init(float timeLimit, MonoBehaviour restoreScript, float scale, float mass, float interpolationTime)
 	{
 		base.init(timeLimit, restoreScript);
-		interpolatorPosition = new VectorInterpolator ();
-		interpolatorScale = new VectorInterpolator ();
-		Vector3 endPosition = transform.position;
-		Vector3 endScale = transform.localScale;
-		BoxCollider2D collider = GetComponent<BoxCollider2D> ();
-		if (collider) {
-			float offset = ((scale * collider.size.y) - collider.size.y) / 2.0f;
-			endPosition = new Vector3(transform.position.x, transform.position.y + offset, transform.position.z);
-		}
-		endScale = new Vector3(Mathf.Sign(transform.localScale.x) * scale, Mathf.Sign(transform.localScale.y) * scale, transform.localScale.z);
+
 		if (rigidbody2D) {
 			rigidbody2D.mass = mass;
 		}
+
+		interpolatorPosition = new VectorInterpolator ();
+		interpolatorScale = new VectorInterpolator ();
+
+		Vector3 endPosition = transform.position;
+		Vector3 endScale = transform.localScale;
+
+		Bounds bounds = GameObjectBounds.GetBounds(gameObject);
+		Debug.Log(bounds.center.y - transform.position.y);
+
+		float offset = ((scale * bounds.size.y / transform.localScale.y) - bounds.size.y) * (0.5f - bounds.center.y + transform.position.y);
+		endPosition = new Vector3(transform.position.x, transform.position.y + offset, transform.position.z);
+
+		endScale = new Vector3(Mathf.Sign(transform.localScale.x) * scale, Mathf.Sign(transform.localScale.y) * scale, transform.localScale.z);
+
 		interpolatorPosition.setInterpolator(transform.position, endPosition, interpolationTime);
 		interpolatorScale.setInterpolator(transform.localScale, endScale, interpolationTime);
 
