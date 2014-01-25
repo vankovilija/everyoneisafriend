@@ -55,7 +55,7 @@ public abstract class Scale : LimitedTimeComponent {
 				newScale.x *= -1;
 			transform.localScale = newScale;
 
-			if (!playerControl.grounded)
+			if (playerControl.grounded)
 				transform.position += new Vector3(0f, offsetY, 0f);
 
 			 
