@@ -172,9 +172,9 @@ public class PlayerControl : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		
 		if (axisDirection > 0)
-			theScale.x = 1;
+			theScale.x = Mathf.Abs(theScale.x);
 		else if(axisDirection < 0)
-			theScale.x = -1;
+			theScale.x = Mathf.Abs(theScale.x) * -1;
 		
 		transform.localScale = theScale;
 	}

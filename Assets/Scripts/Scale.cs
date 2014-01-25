@@ -21,6 +21,8 @@ public abstract class Scale : LimitedTimeComponent {
 	// Update is called once per frame
 	new public void Update () {
 		base.Update ();
+		Debug.Log(transform.localScale.x);
+		Debug.Log(scaleValue);
 		if( Mathf.Abs(transform.localScale.x) != scaleValue && interpolatorScale.Finished ()) {
 			Vector3 endPosition = transform.position;
 			Vector3 endScale = transform.localScale;

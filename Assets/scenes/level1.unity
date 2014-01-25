@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0347594ebe6f3429186b13759341ed93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1916935581}
   leftBound: {fileID: 1470509604}
   rightBound: {fileID: 1527156967}
   bottomBound: {fileID: 1846296587}
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
   NPCPowerUp: 1
-  NPCPowerUpTime: 1
+  NPCPowerUpTime: 10
   stopDistance: 1
 --- !u!114 &1377536331
 MonoBehaviour:
@@ -2574,7 +2574,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 7352bc36e1fb74bdc9bbcfad013e31bc, type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1916935581}
     - target: {fileID: 11400000, guid: 7352bc36e1fb74bdc9bbcfad013e31bc, type: 2}
       propertyPath: leftBound
       value: 
@@ -2895,7 +2895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
   NPCPowerUp: 1
-  NPCPowerUpTime: 1
+  NPCPowerUpTime: 10
   stopDistance: 1
 --- !u!50 &1848573598
 Rigidbody2D:
@@ -3277,7 +3277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
   NPCPowerUp: 2
-  NPCPowerUpTime: 1
+  NPCPowerUpTime: 10
   stopDistance: 1
 --- !u!50 &1968376419
 Rigidbody2D:

@@ -15,7 +15,11 @@ public class PlayerActivatePowerup : MonoBehaviour {
 
 	public void ActivatePowerup(string powerup, float timeActive) {
 
-		(gameObject.AddComponent(powerup) as LimitedTimeComponent).init(timeActive);
+		if (GetComponent(powerup)) {
+			(GetComponent(powerup) as LimitedTimeComponent).init(timeActive);
+		} else {
+			(gameObject.AddComponent(powerup) as LimitedTimeComponent).init(timeActive);
+		}
 
 	}
 
