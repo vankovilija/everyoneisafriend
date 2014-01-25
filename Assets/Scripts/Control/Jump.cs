@@ -7,6 +7,7 @@ public abstract class Jump : LimitedTimeComponent {
 	private bool jump = false;
 
 	public float jumpForce = 12;
+	public GameObject cloud;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public abstract class Jump : LimitedTimeComponent {
 
 		if (jump) {
 			player.GetComponentInChildren<Animator>().SetTrigger("JumpUp");
+			Instantiate(cloud, player.transform.position, Quaternion.Euler(0f,0f,0f));
 			DoJump ();
 			jump = false;
 		}
