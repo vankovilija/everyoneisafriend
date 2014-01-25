@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class Jump : LimitedTimeComponent {
 
-	private PlayerControl player;
+	internal PlayerControl player;
 	private bool jump = false;
 
 	public float jumpForce = 12;
@@ -16,7 +16,7 @@ public abstract class Jump : LimitedTimeComponent {
 	}
 	
 	// Update is called once per frame
-	new void Update () {
+	public new void Update () {
 		base.Update ();
 		if (Input.GetButtonDown ("Jump") && player.grounded) {
 			jump = true;
@@ -26,6 +26,7 @@ public abstract class Jump : LimitedTimeComponent {
 	void FixedUpdate(){
 
 		if (jump) {
+			player.GetComponentInChildren<Animator>().SetTrigger("JumpUp");
 			DoJump ();
 			jump = false;
 		}
