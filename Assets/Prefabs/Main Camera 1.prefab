@@ -122,7 +122,8 @@ MonoBehaviour:
     GlyphCountLimit: 1000
     SoundVolume: 10
     IsMute: 0
-  SWF_File: FlashMenu.swf
+  MENU_File: FlashMenu.swf
+  DIALOGS_File: Dialogs.swf
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
