@@ -33,6 +33,7 @@ GameObject:
   - 81: {fileID: 8100000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400014}
   m_Layer: 9
   m_Name: Covekot
   m_TagString: Player
@@ -296,7 +297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.34309864, y: -4.59057617, z: 0}
+  m_LocalPosition: {x: -.593823791, y: .846514523, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400010}
@@ -694,12 +695,30 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e7de6b3a1a8a4264aaa1e8f334eca3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  jump: 0
   jumpForce: 12
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb4c829cd13f43d283ce7ab5effeba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flapTime: .100000001
+  flapTimeDistance: .200000003
+  flapLiftTime: .300000012
+  fallSpeed: .300000012
+  flapForce: 4
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -6,11 +6,12 @@ public class Fly : MonoBehaviour {
 	private PlayerControl player;
 
 
-	public float flapTime = 0.4f;
-	public float flapTimeDistance = 0.4f;
+	public float flapTime = 0.1f;
+	public float flapTimeDistance = 0.2f;
 	public float flapLiftTime = 0.4f;
+	public float fallSpeed = 0.05f;
 
-	public float flapForce = 5f;
+	public float flapForce = 10f;
 
 	private bool fly;
 
@@ -97,6 +98,21 @@ public class Fly : MonoBehaviour {
 //				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, -fallSpeed);
 //			}
 //		}
+
+		switch (currentState) {
+		case 0:
+		case 3:
+			if(!player.grounded){
+				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, -fallSpeed);
+			}
+			break;
+		case 1:
+			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, -1.5f * fallSpeed);
+			break;
+		case 2:
+			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, flapForce);
+			break;		
+		}
 
 	}
 //
