@@ -136,7 +136,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		if (sky && sky.collider.gameObject.layer == LayerMask.NameToLayer("platforms") && (layerMask >> sky.collider.gameObject.layer) % 2 == 1 && Vector2.Distance(sky.point, skyRaycastPoint) < rigidbody2D.velocity.y * Time.deltaTime) {
-			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), LayerMask.NameToLayer("platforms"));
+			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), sky.collider.gameObject.layer);
 		}
 				
 		Flip ();
@@ -172,9 +172,9 @@ public class PlayerControl : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		
 		if (axisDirection > 0)
-			theScale.x = 1;
+			theScale.x = Mathf.Abs(theScale.x);
 		else if(axisDirection < 0)
-			theScale.x = -1;
+			theScale.x = Mathf.Abs(theScale.x) * -1;
 		
 		transform.localScale = theScale;
 	}
