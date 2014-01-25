@@ -178,4 +178,9 @@ public class PlayerControl : MonoBehaviour {
 		
 		transform.localScale = theScale;
 	}
+
+	public void SetCheckpointPosition(Vector2 position) {
+		_spawnPosition = position;
+	}
+
 }
