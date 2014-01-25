@@ -71,7 +71,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
   NPCPowerUp: 1
-  stopDistance: 1
+  NPCPowerUpTime: 10
+  stopDistance: .300000012
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +85,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  minTimer: 1
+  maxTimer: 5
   platformLayers:
   - platforms
 --- !u!114 &11400004
