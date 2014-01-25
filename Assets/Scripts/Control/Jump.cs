@@ -28,7 +28,8 @@ public abstract class Jump : LimitedTimeComponent {
 
 		if (jump) {
 			player.GetComponentInChildren<Animator>().SetTrigger("JumpUp");
-			Instantiate(cloud, player.transform.position, Quaternion.Euler(0f,0f,0f));
+			GameObject dust = Instantiate(cloud, player.transform.position, Quaternion.Euler(0f,0f,0f)) as GameObject;
+			dust.transform.localScale = player.transform.localScale;
 			DoJump ();
 			jump = false;
 		}
