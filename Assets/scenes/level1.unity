@@ -1521,9 +1521,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
+  m_SortingLayer: -1
   m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2715914445
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1022182656
@@ -1767,8 +1767,8 @@ GameObject:
   - 92: {fileID: 1270463708}
   - 124: {fileID: 1270463707}
   - 114: {fileID: 1270463705}
-  - 114: {fileID: 1270463706}
   - 114: {fileID: 1270463711}
+  - 114: {fileID: 1270463706}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2536,6 +2536,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1661894170}
   - 61: {fileID: 1661894171}
+  - 114: {fileID: 1661894173}
   - 114: {fileID: 1661894172}
   m_Layer: 0
   m_Name: Scroll
@@ -2574,6 +2575,19 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661894169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5b0c640909c401d8f1912a24b4c0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollID: 1
+--- !u!114 &1661894173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: b2daadcf52e75445986e96eb735eba93,
+    type: 2}
+  m_PrefabInternal: {fileID: 860154646}
   m_GameObject: {fileID: 1661894169}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3572,9 +3586,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayer: -1
+  m_SortingOrder: -1
+  m_SortingLayerID: 2715914445
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &2066288078
