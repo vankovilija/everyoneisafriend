@@ -52,7 +52,12 @@ public abstract class Scale : LimitedTimeComponent {
 			transform.localScale = newScale;
 			transform.position += new Vector3(0f, offsetY, 0f);
 
-			Camera.main.GetComponent<CameraScale> ().SetCameraScale(Mathf.Abs(newScale.x));
+			 
+			CameraScale cameraScale = Camera.main.GetComponent<CameraScale> ();
+			if (cameraScale) {
+				cameraScale.SetCameraScale(Mathf.Abs(newScale.x));
+			}
+
 
 			oldY = interpolatorPosition.CurrentPosition ().y;
 		}
