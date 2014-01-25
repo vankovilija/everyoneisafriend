@@ -27,6 +27,7 @@ public class DialogNPC : MonoBehaviour {
 		if (Input.GetKey(KeyCode.A) && hasDialog) {
 			
 			player.GetComponent<PlayerActivatePowerup> ().ActivatePowerup(Powerups.GetPowerup(NPCPowerUp), NPCPowerUpTime); 
+			dialogsInstance.activateDialogPowerup();
 			
 		}
 

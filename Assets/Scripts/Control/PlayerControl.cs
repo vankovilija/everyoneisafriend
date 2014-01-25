@@ -43,8 +43,19 @@ public class PlayerControl : MonoBehaviour {
 	}
 	private Animator anim;
 
+	private int layerMaskGround = 0;
+	private int layerMaskSky = 0;
+
 	void Start()
 	{
+		for (int i = 0; i < platformLayers.Length; i++) {
+			layerMaskGround = layerMaskGround | (1 << LayerMask.NameToLayer(platformLayers[i]));
+		}
+
+		for (int i = 0; i < passTroughLayers.Length; i++) {
+			layerMaskSky = layerMaskSky | (1 << LayerMask.NameToLayer(passTroughLayers[i]));
+		}
+
 		gameObject.tag = PLAYER_TAG;
 		BoxCollider2D colider = GetComponent<BoxCollider2D> ();
 		topLeft = new Vector3 (colider.center.x - colider.size.x / 2, colider.center.y + colider.size.y / 2, 0f);
@@ -65,10 +76,8 @@ public class PlayerControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		int layerMaskGround = 0;
-		for (int i = 0; i < platformLayers.Length; i++) {
-			layerMaskGround = layerMaskGround | (1 << LayerMask.NameToLayer(platformLayers[i]));
-		}
+
+
 		Vector3 bottomLeftScaled = new Vector3 (bottomLeft.x * transform.lossyScale.x, bottomLeft.y * transform.lossyScale.y, bottomLeft.z * transform.lossyScale.z);
 		Vector3 bottomRightScaled = new Vector3 (bottomRight.x * transform.lossyScale.x, bottomRight.y * transform.lossyScale.y, bottomRight.z * transform.lossyScale.z);
 		Vector3 topRightScaled = new Vector3 (topRight.x * transform.lossyScale.x, topRight.y * transform.lossyScale.y, topRight.z * transform.lossyScale.z);
@@ -82,11 +91,6 @@ public class PlayerControl : MonoBehaviour {
 		if (Vector2.Distance (groundRaycastPoint, ground.point) > Vector2.Distance (tempHit.point, tempPoint)) {
 			ground = tempHit;
 			groundRaycastPoint = tempPoint;
-		}
-
-		int layerMask = 0;
-		for (int i = 0; i < passTroughLayers.Length; i++) {
-			layerMask = layerMask | (1 << LayerMask.NameToLayer(passTroughLayers[i]));
 		}
 
 		Vector3 skyRaycastPoint = transform.position + topLeftScaled + singleUnitVerticalVector - singleUnitHorizontalVector;
@@ -114,7 +118,7 @@ public class PlayerControl : MonoBehaviour {
 
 		double distanceToGround = Vector2.Distance (ground.point, groundRaycastPoint);
 
-		if (ground && ground.collider.gameObject.tag != "Bullet" && (distanceToGround < 0.2f || distanceToGround < Mathf.Abs( rigidbody2D.velocity.y * Time.deltaTime ))) {
+		if (ground && ground.collider.gameObject.tag != "Bullet" && (distanceToGround < 0.1f || distanceToGround < Mathf.Abs( rigidbody2D.velocity.y * Time.deltaTime ))) {
 			MoveSpeedEventDispatcher newDispatcher = ground.collider.gameObject.GetComponent<MoveSpeedEventDispatcher> ();
 			if (newDispatcher != currentGroundMoveSpeedEventDispatcher) {
 					if (currentGroundMoveSpeedEventDispatcher != null)
@@ -135,8 +139,8 @@ public class PlayerControl : MonoBehaviour {
 			grounded = false;
 		}
 
-		if (sky && sky.collider.gameObject.layer == LayerMask.NameToLayer("platforms") && (layerMask >> sky.collider.gameObject.layer) % 2 == 1 && Vector2.Distance(sky.point, skyRaycastPoint) < rigidbody2D.velocity.y * Time.deltaTime) {
-			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("player"), sky.collider.gameObject.layer);
+		if (sky && (layerMaskSky >> sky.collider.gameObject.layer) % 2 == 1 && Vector2.Distance (sky.point, skyRaycastPoint) < rigidbody2D.velocity.y * Time.deltaTime) {
+			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("player"), sky.collider.gameObject.layer);
 		}
 				
 		Flip ();

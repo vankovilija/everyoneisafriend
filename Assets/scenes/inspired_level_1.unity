@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
-  NPCPowerUp: 1
+  NPCPowerUp: 2
   NPCPowerUpTime: 10
   stopDistance: .200000003
 --- !u!114 &690163287
@@ -1345,8 +1345,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1.62593269, y: .253901482}
-  m_Center: {x: .017033577, y: 2.17991495}
+  m_Size: {x: 1.62593269, y: .126844406}
+  m_Center: {x: .017033577, y: 2.24344349}
 --- !u!212 &869194446
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1378,7 +1378,7 @@ Transform:
   m_PrefabInternal: {fileID: 1635787551}
   m_GameObject: {fileID: 869194444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.60900402, y: -2.07193136, z: 0}
+  m_LocalPosition: {x: 2.50588703, y: -1.6883626, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1420,6 +1420,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
       propertyPath: moveSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
+      propertyPath: NPCPowerUp
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
@@ -2412,11 +2416,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 248091bd7efa647138f63e3cbae7730f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.60900402
+      value: 2.50588703
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 248091bd7efa647138f63e3cbae7730f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.07193136
+      value: -1.6883626
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 248091bd7efa647138f63e3cbae7730f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2440,11 +2444,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 248091bd7efa647138f63e3cbae7730f, type: 2}
       propertyPath: m_Size.y
-      value: .253901482
+      value: .126844406
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 248091bd7efa647138f63e3cbae7730f, type: 2}
       propertyPath: m_Center.y
-      value: 2.17991495
+      value: 2.24344349
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 248091bd7efa647138f63e3cbae7730f, type: 2}

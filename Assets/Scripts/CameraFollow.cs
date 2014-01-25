@@ -11,12 +11,14 @@ public class CameraFollow : MonoBehaviour {
 	public float smoothTime = 0.3f;
 	
 	private Vector2 velocity = Vector2.zero;
-	private float widthHalf	;
-	private float heightHalf;
+	internal float widthHalf;
+	internal float heightHalf;
 	
 	void Start () {
-		heightHalf = camera.orthographicSize;
+		heightHalf = Mathf.Tan(0.5f * ((Mathf.PI * camera.fieldOfView) / 180)) * camera.transform.position.z;
+		heightHalf = Mathf.Abs(heightHalf);// / 5;
 		widthHalf = heightHalf * camera.aspect;
+
 	}
 	
 	void Update () {
@@ -26,7 +28,6 @@ public class CameraFollow : MonoBehaviour {
 		
 		if (target)
 		{
-//			newX = Mathf.SmoothDamp(transform.position.x, target.position.x, ref velocity.x, smoothTime);
 			newX = target.position.x;
 			newY = Mathf.SmoothDamp(transform.position.y, target.position.y, ref velocity.y, smoothTime);
 		}

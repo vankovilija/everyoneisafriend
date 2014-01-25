@@ -47,5 +47,9 @@ public class FlashDialogs : Movie
 	public void removeDialog(){
 		theMovie.Invoke ("removeDialog");
 	}
+
+	public void activateDialogPowerup() {
+		theMovie.Invoke ("takeDialogBuff");
+	}
 }
 
