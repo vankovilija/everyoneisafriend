@@ -25,8 +25,27 @@ public class DialogNPC : MonoBehaviour {
 	void Update () {
 		Vector3 direction = (player.transform.position - transform.position).normalized;
 
-		RaycastHit2D hitToPlayer = Physics2D.Raycast(transform.position, direction);
-		RaycastHit2D hitToNPC = Physics2D.Raycast(player.transform.position, direction * -1);
+		Vector3 rayPoint = transform.position;
+		float coliderWidth = GetComponent<BoxCollider2D> ().size.x * 0.5f + 0.2f;
+		float sign = Mathf.Sign (direction.x);
+		rayPoint.x += sign * coliderWidth;
+		RaycastHit2D hitToPlayer = Physics2D.Raycast(rayPoint, direction);
+
+		if(hitToPlayer.collider.tag != PlayerControl.PLAYER_TAG){
+			GetComponent<NPCMovementScript> ().ContinueWalking ();
+			if(hasDialog){
+				dialogsInstance.removeDialog();
+				hasDialog = false;
+			}
+			return;
+		}
+
+		rayPoint = player.transform.position;
+		coliderWidth = player.GetComponent<BoxCollider2D> ().size.x * 0.5f + 0.2f;
+		direction *= -1;
+		sign = Mathf.Sign (direction.x);
+		rayPoint.x += sign * coliderWidth;
+		RaycastHit2D hitToNPC = Physics2D.Raycast(rayPoint, direction);
 
 		float distance = Vector3.Distance (hitToPlayer.point, hitToNPC.point);
 
