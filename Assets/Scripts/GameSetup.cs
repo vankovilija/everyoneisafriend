@@ -8,6 +8,7 @@ public class GameSetup : MonoBehaviour {
 	public static List<GameObject> angryFriends = new List<GameObject>();
 
 	public int lifesLost = 0;
+	public int scrolls = 0;
 
 	private Camera mainCam;
 
@@ -57,4 +58,7 @@ public class GameSetup : MonoBehaviour {
 		Debug.Log ("happy friends: " + happyFriends.Count + " angry friends: " + angryFriends.Count);
 	}
 
+	public void CountScrolls(){
+		scrolls++;
+	}
 }

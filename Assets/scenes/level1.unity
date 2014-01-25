@@ -2428,6 +2428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifesLost: 0
+  scrolls: 0
 --- !u!1001 &1649339293
 Prefab:
   m_ObjectHideFlags: 0
@@ -2481,6 +2482,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1661894170}
   - 61: {fileID: 1661894171}
+  - 114: {fileID: 1661894172}
   m_Layer: 0
   m_Name: Scroll
   m_TagString: Untagged
@@ -2513,6 +2515,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .569999993, y: .699999988}
   m_Center: {x: .00999999978, y: 0}
+--- !u!114 &1661894172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661894169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5b0c640909c401d8f1912a24b4c0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSetup: {fileID: 0}
 --- !u!1 &1677738051
 GameObject:
   m_ObjectHideFlags: 0
