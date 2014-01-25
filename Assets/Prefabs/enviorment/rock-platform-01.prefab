@@ -9,9 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 61: {fileID: 6100002}
-  - 61: {fileID: 6100000}
-  m_Layer: 0
+  - 60: {fileID: 6000000}
+  m_Layer: 8
   m_Name: rock-platform-01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,12 +24,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.94316006, y: .678363919, z: 0}
+  m_LocalPosition: {x: -1.26215947, y: -2.5240767, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!61 &6100000
-BoxCollider2D:
+--- !u!60 &6000000
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -38,19 +37,29 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.11205864, y: .28511405}
-  m_Center: {x: 1.49897003, y: 1.63523948}
---- !u!61 &6100002
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 2.8615458, y: .251047134}
-  m_Center: {x: -.885754108, y: 1.10719383}
+  m_Poly:
+    m_Paths:
+    - - {x: 1.16232109, y: -.921108723}
+      - {x: .778073072, y: -.926212549}
+      - {x: .547222376, y: -.24022603}
+      - {x: .728413761, y: .359017372}
+      - {x: 1.45524132, y: .705217242}
+      - {x: 1.40495169, y: 1.15133619}
+      - {x: 2.36500001, y: 1.31999993}
+      - {x: 2.53499985, y: 1.45999992}
+      - {x: 2.55499983, y: 1.48000002}
+      - {x: 2.55499983, y: 1.75999999}
+      - {x: 1.44485497, y: 1.7749759}
+      - {x: .429122329, y: 1.6240741}
+      - {x: .393341511, y: 1.29412234}
+      - {x: -.328462124, y: 1.27326894}
+      - {x: -.592294574, y: 1.19246376}
+      - {x: -2.29210949, y: 1.15862489}
+      - {x: -2.55499983, y: -.319999993}
+      - {x: -2.55499983, y: -.589999974}
+      - {x: -2.55499983, y: -.959999979}
+      - {x: -2.55499983, y: -1.88}
+      - {x: 1.39797938, y: -1.87999988}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

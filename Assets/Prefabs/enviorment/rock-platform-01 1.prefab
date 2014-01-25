@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 61: {fileID: 6100000}
+  - 60: {fileID: 6000000}
   m_Layer: 8
-  m_Name: rock-pillar-01
+  m_Name: rock-platform-01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,12 +24,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.38513374, y: -2.07193136, z: 0}
+  m_LocalPosition: {x: -1.26215947, y: -2.5240767, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!61 &6100000
-BoxCollider2D:
+--- !u!60 &6000000
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -37,8 +37,29 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1.62593269, y: .224461555}
-  m_Center: {x: .017033577, y: 2.19463491}
+  m_Poly:
+    m_Paths:
+    - - {x: 1.16232109, y: -.921108723}
+      - {x: .778073072, y: -.926212549}
+      - {x: .547222376, y: -.24022603}
+      - {x: .728413761, y: .359017372}
+      - {x: 1.45524132, y: .705217242}
+      - {x: 1.40495169, y: 1.15133619}
+      - {x: 2.36500001, y: 1.31999993}
+      - {x: 2.53499985, y: 1.45999992}
+      - {x: 2.55499983, y: 1.48000002}
+      - {x: 2.55499983, y: 1.75999999}
+      - {x: 1.44485497, y: 1.7749759}
+      - {x: .429122329, y: 1.6240741}
+      - {x: .393341511, y: 1.29412234}
+      - {x: -.328462124, y: 1.27326894}
+      - {x: -.592294574, y: 1.19246376}
+      - {x: -2.29210949, y: 1.15862489}
+      - {x: -2.55499983, y: -.319999993}
+      - {x: -2.55499983, y: -.589999974}
+      - {x: -2.55499983, y: -.959999979}
+      - {x: -2.55499983, y: -1.88}
+      - {x: 1.39797938, y: -1.87999988}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -58,9 +79,9 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: ad3f2af41fa854e2289e4b36f5373c68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcffc4f73b174480aa277340c71e9911, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

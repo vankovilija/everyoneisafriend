@@ -6,10 +6,10 @@ public class CameraScale : MonoBehaviour {
 	private float startScale;
 
 	void Start () {
-		startScale = Camera.main.orthographicSize;
+		startScale = Camera.main.fieldOfView;
 	}
 	
 	public void SetCameraScale(float scale) {
-		Camera.main.orthographicSize = startScale * scale;
+		Camera.main.fieldOfView = startScale * scale;
 	}
 }
