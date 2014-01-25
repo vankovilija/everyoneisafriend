@@ -1357,6 +1357,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
+      propertyPath: stopDistance
+      value: .300000012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6bf04a2e9722a4625b5a621c1c3ec2fd, type: 2}
   m_RootGameObject: {fileID: 1377536325}
@@ -2021,7 +2025,7 @@ MonoBehaviour:
   dialogOffset: {x: 0, y: 0}
   NPCPowerUp: 1
   NPCPowerUpTime: 10
-  stopDistance: 1
+  stopDistance: .300000012
 --- !u!114 &1377536331
 MonoBehaviour:
   m_ObjectHideFlags: 0
