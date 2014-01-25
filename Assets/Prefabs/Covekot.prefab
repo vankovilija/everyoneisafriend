@@ -32,6 +32,7 @@ GameObject:
   - 114: {fileID: 11400008}
   - 81: {fileID: 8100000}
   - 82: {fileID: 8200000}
+  - 114: {fileID: 11400012}
   m_Layer: 9
   m_Name: Covekot
   m_TagString: Player
@@ -643,17 +644,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 983d3cbc814964e69a0873912a981adb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc09f0e9853f4b4aa772dbaf2979f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platformLayers:
   - platforms
-  - Friends
   passTroughLayers:
   - platforms
   moveForce: 365
-  maxSpeed: 4
-  jumpForce: 12
+  maxSpeed: 5
+  jumpForce: 1000
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -688,6 +688,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38000a2fe4d345c9bbaca359d1ad19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7de6b3a1a8a4264aaa1e8f334eca3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 12
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
