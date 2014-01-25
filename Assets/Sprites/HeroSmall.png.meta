@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 72b9a41f786b34fafac5bbfc0891377c
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: HeroSmall_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 448
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 448
+        width: 48
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 382
+        width: 48
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 382
+        width: 47
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 311
+        width: 41
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 311
+        width: 40
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 246
+        width: 41
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_7
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 246
+        width: 42
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 180
+        width: 44
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_9
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 180
+        width: 44
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_10
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 112
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_11
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 114
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HeroSmall_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 45
+        width: 47
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

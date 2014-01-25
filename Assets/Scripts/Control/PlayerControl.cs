@@ -41,6 +41,7 @@ public class PlayerControl : MonoBehaviour {
 			return _spawnPosition;
 		}
 	}
+	private Animator anim;
 
 	void Start()
 	{
@@ -55,7 +56,7 @@ public class PlayerControl : MonoBehaviour {
 		singleUnitVerticalVector = new Vector3 (0f, 0.1f, 0f);
 		_spawnPosition = new Vector2 (transform.position.x, transform.position.y);
 
-		animationController = GetComponentInChildren<AnimationController> (); 
+		anim = GetComponentInChildren<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -150,7 +151,8 @@ public class PlayerControl : MonoBehaviour {
 		moveSpeed += groundVelocity;	
 		
 		rigidbody2D.velocity = new Vector2 (moveSpeed.x, rigidbody2D.velocity.y);
-		animationController.RunSpeed (axisDirection * maxSpeed);
+		anim.SetFloat ("Speed", Mathf.Abs(moveSpeed.x));
+
 	}
 
 	void OnGroundSpeedChange(GameObject groundObject){

@@ -10,7 +10,6 @@ public class Health : MonoBehaviour {
 
 	void Update() {
 		if (!inited) {
-			GetComponentInChildren<AnimationController> ().AnimationStart += OnAnimationStart;
 			inited = true;
 		}
 	}
@@ -18,7 +17,7 @@ public class Health : MonoBehaviour {
 	void die() {
 		rigidbody2D.velocity = new Vector2 (0f, 0f);
 		GetComponent<BoxCollider2D> ().enabled = false;
-		GetComponentInChildren<AnimationController> ().Die ();
+		respawn ();
 		if (OnDeath != null)
 			OnDeath ();
 	}

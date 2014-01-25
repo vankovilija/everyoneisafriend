@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AnimationController : MonoBehaviour {
 
-	public const string DEATH = "Death";
+	public const string STILL = "Still";
 	public const string RUN = "Run";
 	public const string SPAWN = "Spawn";
 
@@ -17,19 +17,19 @@ public class AnimationController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartAnimation (SPAWN);
+		StartAnimation (STILL);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		switch (currentAnimation) {
-		case DEATH:
+		case RUN:
 			if (!animation.isPlaying) {
-				StartAnimation(SPAWN);
+				StartAnimation(STILL);
 			}
 			break;
-		case SPAWN:
+		case STILL:
 			if (!animation.isPlaying) {
 				StartAnimation(RUN);
 			}
@@ -39,11 +39,11 @@ public class AnimationController : MonoBehaviour {
 	}
 
 	public void RunSpeed(float speed) {
-		animation[RUN].speed = speed;
+//		animation[RUN].speed = speed;
 	}
 
 	public void Die() {
-		StartAnimation (DEATH);
+		//StartAnimation (DEATH);
 	}
 
 	private void StartAnimation(string animationName) {
