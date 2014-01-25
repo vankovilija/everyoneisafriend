@@ -43,7 +43,7 @@ public class DialogNPC : MonoBehaviour {
 			
 			if(NPCBound.Overlaps(PLAYERBounds)){
 				GetComponent<NPCMovementScript> ().StopWalking ();
-				Debug.Log("stop");
+
 				if(dialogsInstance != null){
 					Vector3 spawnPosition = transform.position;
 					spawnPosition.x += dialogOffset.x;
