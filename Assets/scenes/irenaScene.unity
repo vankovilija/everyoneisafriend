@@ -86,6 +86,7 @@ GameObject:
   - 92: {fileID: 181996856}
   - 124: {fileID: 181996855}
   - 81: {fileID: 181996854}
+  - 114: {fileID: 181996859}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -154,6 +155,46 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &181996859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 181996853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbeef2237d26f423ab8ae46ed3ddbbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhenToRender: 0
+  Initialized: 0
+  InitParams:
+    TheASVersion: 1
+    InitVideo: 0
+    InitSound: 1
+    UseDynamicShaderCompilation: 1
+    TheVideoSoundSystem: 0
+    IsInitIME: 0
+    AmpProfiling: 0
+    ProgLoading: 1
+    TheFontCacheConfig:
+      TextureHeight: 1024
+      TextureWidth: 1024
+      MaxNumTextures: 1
+      MaxSlotHeight: 48
+    SetFontCacheParams: 1
+    IsEnableDynamicCache: 1
+    TheFontPackParams:
+      NominalSize: 32
+      PadPixels: 2
+      TextureWidth: 512
+      TextureHeight: 512
+    SetFontPackParams: 1
+    GlyphCountLimit: 1000
+    SoundVolume: 10
+    IsMute: 0
+  MENU_File: FlashMenu.swf
+  DIALOGS_File: Dialogs.swf
 --- !u!1 &230428534
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,8 +409,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3dbb965234e43f48b88fd2e27ba814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCPowerUp: 0
-  stopDistance: .200000003
+  dialogOffset: {x: 0, y: 0}
+  NPCPowerUp: 1
+  stopDistance: 1
 --- !u!114 &738062816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,9 +488,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
+  m_SortingLayer: -1
   m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2715914445
   m_Sprite: {fileID: 21300000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &738062821
@@ -985,6 +1027,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: bd4751152837e40edbb36385edc3b039, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd4751152837e40edbb36385edc3b039, type: 2}
   m_RootGameObject: {fileID: 1898133959}
@@ -1038,7 +1084,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: -1
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_SortingLayerID: 786401637
   m_Sprite: {fileID: 21300000, guid: 0be4efcc718c94aa993bc43748dc9d58, type: 3}
@@ -1070,8 +1116,8 @@ GameObject:
   - 114: {fileID: 1898133961}
   - 81: {fileID: 1898133969}
   - 82: {fileID: 1898133968}
-  - 114: {fileID: 1898133970}
   - 114: {fileID: 1898133971}
+  - 114: {fileID: 1898133970}
   m_Layer: 9
   m_Name: Covekot
   m_TagString: Player
@@ -1157,12 +1203,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformLayers:
   - platforms
-  - Friends
   passTroughLayers:
   - platforms
   moveForce: 365
-  maxSpeed: 4
-  jumpForce: 12
+  maxSpeed: 5
+  jumpForce: 1000
 --- !u!50 &1898133966
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1261,7 +1306,22 @@ AudioListener:
 --- !u!114 &1898133970
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400014, guid: bd4751152837e40edbb36385edc3b039,
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898133959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb4c829cd13f43d283ce7ab5effeba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upTime: .699999988
+  pushTime: .300000012
+  flySpeed: 5
+  fallSpeed: -.300000012
+--- !u!114 &1898133971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400012, guid: bd4751152837e40edbb36385edc3b039,
     type: 2}
   m_PrefabInternal: {fileID: 1685285287}
   m_GameObject: {fileID: 1898133959}
@@ -1271,20 +1331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 12
---- !u!114 &1898133971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400012, guid: bd4751152837e40edbb36385edc3b039,
-    type: 2}
-  m_PrefabInternal: {fileID: 1685285287}
-  m_GameObject: {fileID: 1898133959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb4c829cd13f43d283ce7ab5effeba0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flySpeed: 2
-  fallSpeed: -.300000012
 --- !u!1 &1989769536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1572,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: -1
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_SortingLayerID: 786401637
   m_Sprite: {fileID: 21300000, guid: 0be4efcc718c94aa993bc43748dc9d58, type: 3}
