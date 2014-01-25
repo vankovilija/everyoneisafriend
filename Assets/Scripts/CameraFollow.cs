@@ -19,14 +19,15 @@ public class CameraFollow : MonoBehaviour {
 		widthHalf = heightHalf * camera.aspect;
 	}
 	
-	void FixedUpdate () {
+	void Update () {
 		
 		float newX = transform.position.x;
 		float newY = transform.position.y;
 		
 		if (target)
 		{
-			newX = Mathf.SmoothDamp(transform.position.x, target.position.x, ref velocity.x, smoothTime);
+//			newX = Mathf.SmoothDamp(transform.position.x, target.position.x, ref velocity.x, smoothTime);
+			newX = target.position.x;
 			newY = Mathf.SmoothDamp(transform.position.y, target.position.y, ref velocity.y, smoothTime);
 		}
 
