@@ -8,7 +8,7 @@ public class BigScale : Scale {
 	}
 
 	protected override void Setup () {
-		scaleValue = 1.5f;
+		scaleValue = 2f;
 		massValue = 350.0f;
 	}
 }
