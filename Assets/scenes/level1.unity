@@ -1979,6 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
   NPCPowerUp: 1
+  NPCPowerUpTime: 1
   stopDistance: 1
 --- !u!114 &1377536331
 MonoBehaviour:
@@ -2894,6 +2895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
   NPCPowerUp: 1
+  NPCPowerUpTime: 1
   stopDistance: 1
 --- !u!50 &1848573598
 Rigidbody2D:
@@ -3014,6 +3016,8 @@ GameObject:
   - 82: {fileID: 1916935583}
   - 81: {fileID: 1916935582}
   - 114: {fileID: 1916935589}
+  - 114: {fileID: 1916935591}
+  - 114: {fileID: 1916935590}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -3184,6 +3188,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 12
+--- !u!114 &1916935590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1916935580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9a70ad9eda34e3e916e7b5c572652c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1916935591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1916935580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce83f1ae8d7a4fd687a2d781e2b45fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleValue: 0
+  massValue: 0
+  interpolationTime: 1
 --- !u!1 &1968376415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,6 +3277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
   NPCPowerUp: 2
+  NPCPowerUpTime: 1
   stopDistance: 1
 --- !u!50 &1968376419
 Rigidbody2D:

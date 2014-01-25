@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LimitedTimeComponent : MonoBehaviour {
+public abstract class LimitedTimeComponent : MonoBehaviour {
 
 	private float timeLimit;
 	private MonoBehaviour restoreScript;
 
 	private float timeSpend;
 
-	public void init(float timeLimit, MonoBehaviour restoreScript) {
+	protected virtual void init(float timeLimit, MonoBehaviour restoreScript) {
 		this.timeLimit = timeLimit;
 		if (restoreScript) {
 			if (restoreScript is LimitedTimeComponent) {
-				restoreScript = (restoreScript as LimitedTimeComponent).restoreScript;
+				if ((restoreScript as LimitedTimeComponent).restoreScript)
+					restoreScript = (restoreScript as LimitedTimeComponent).restoreScript;
 			}
 			restoreScript.enabled = false;
 		}
@@ -29,4 +30,6 @@ public class LimitedTimeComponent : MonoBehaviour {
 			Destroy(this);
 		}
 	}
+
+	public abstract void init(float timeActive);
 }

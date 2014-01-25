@@ -5,6 +5,7 @@ public class DialogNPC : MonoBehaviour {
 
 	public Vector2 dialogOffset = new Vector2(0f,0f);
 	public int NPCPowerUp = 1;
+	public float NPCPowerUpTime = 10.0f;
 	public float stopDistance = 0.2f;
 
 	private GameObject player;
@@ -45,6 +46,13 @@ public class DialogNPC : MonoBehaviour {
 				hasDialog = false;
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.A) && hasDialog) {
+
+			player.GetComponent<PlayerActivatePowerup> ().ActivatePowerup(Powerups.GetPowerup(NPCPowerUp), NPCPowerUpTime); 
+
+		}
+
 	}
 
 	void FlashInitialized(MenuCamera camera)
