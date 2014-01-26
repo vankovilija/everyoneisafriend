@@ -8,7 +8,7 @@ public class MainFlashMenu : Movie
 {
 	public bool ready = false;
 
-	protected Value	theMovie = null;
+	public Value	theMovie = null;
 	private MainMenuCamera parent = null;
 	
 	public MainFlashMenu(MainMenuCamera parent, SFManager sfmgr, SFMovieCreationParams cp) :
@@ -27,6 +27,11 @@ public class MainFlashMenu : Movie
 	public void MenuReady()
 	{
 		ready = true;
+	}
+
+	public void AdvanceLevel()
+	{
+		Application.LoadLevel(Application.loadedLevel + 1);
 	}
 }
 

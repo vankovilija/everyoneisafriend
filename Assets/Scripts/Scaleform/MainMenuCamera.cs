@@ -8,6 +8,8 @@ using Scaleform;
 public class MainMenuCamera : SFCamera {
 	public MainFlashMenu menu = null;
 	public string MAIN_Menu = "MainFlashMenu.swf";
+
+	private bool startedAnimation = false;
 	
 	new public  IEnumerator Start()
 	{
@@ -22,8 +24,13 @@ public class MainMenuCamera : SFCamera {
 		CreateUI ();
 		base.Update ();
 
-		if (menu.ready && Input.GetKey (KeyCode.Space)) {
-			Application.LoadLevel(Application.loadedLevel + 1);
+		if (menu.ready && Input.GetKeyDown (KeyCode.Space)) {
+			if(!startedAnimation){
+				menu.theMovie.Invoke("playStartAnimation");
+				startedAnimation = true;
+			}else{
+				Application.LoadLevel(Application.loadedLevel + 1);
+			}
 		}
 	}
 	
