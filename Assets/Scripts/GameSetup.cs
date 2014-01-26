@@ -20,14 +20,13 @@ public class GameSetup : MonoBehaviour {
 		if (CheckpointReach != null) {
 			CheckpointReach(orderId);
 		}
-		mainCam = Camera.main;
 	}
 
 
 	void Start () {
 
 		GameObject.FindGameObjectWithTag (PlayerControl.PLAYER_TAG).GetComponent<Health>().OnDeath += PlayerDeathHandler;
-
+		mainCam = Camera.main;
 	}
 
 	void Update () {
