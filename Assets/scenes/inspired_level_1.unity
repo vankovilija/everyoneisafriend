@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upTime: 1
   downTime: 2.5
+  startTime: 0
 --- !u!1001 &111207739
 Prefab:
   m_ObjectHideFlags: 0
@@ -2634,6 +2635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upTime: 1
   downTime: 2.5
+  startTime: 0
 --- !u!1001 &1119239211
 Prefab:
   m_ObjectHideFlags: 0
@@ -3348,6 +3350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upTime: 1
   downTime: 2.5
+  startTime: 0
 --- !u!1 &1418234485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,9 +4068,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
+  m_SortingLayer: -3
   m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 786401637
   m_Sprite: {fileID: 21300000, guid: f7d421aabe7ca420c9af505248f4559c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1724760234
@@ -4111,6 +4114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upTime: 1
   downTime: 2.5
+  startTime: 0
 --- !u!4 &1728490713
 Transform:
   m_ObjectHideFlags: 0
