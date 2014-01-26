@@ -27,10 +27,13 @@ public abstract class LimitedTimeComponent : MonoBehaviour {
 			if (restoreScript) {
 				restoreScript.enabled = true;
 			}
+<<<<<<< HEAD
 			Vector3 cantPos = transform.position;
 			cantPos.y += GetComponent<BoxCollider2D>().size.y + 0.2f;
 			Camera.main.GetComponent<MenuCamera>().dialogs.showCantAt(cantPos);
+=======
 			OnRemove();
+>>>>>>> 97e082f00c2e0996768b2881ea0fa21d30719357
 			Destroy(this);
 		}
 	}

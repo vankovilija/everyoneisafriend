@@ -30,13 +30,9 @@ public abstract class LimitedTimeComponent : MonoBehaviour {
 			Vector3 cantPos = transform.position;
 			cantPos.y += GetComponent<BoxCollider2D>().size.y + 0.2f;
 			Camera.main.GetComponent<MenuCamera>().dialogs.showCantAt(cantPos);
-			OnRemove();
 			Destroy(this);
 		}
 	}
 
 	public abstract void init(float timeActive);
-	protected virtual void OnRemove() {
-
-	}
 }

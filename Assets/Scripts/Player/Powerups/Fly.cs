@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Fly : LimitedTimeComponent {
 
 	private PlayerControl player;
-
+	private Animator playerAnimation;
 
 	public float flapTime = 0.1f;
 	public float flapTimeDistance = 0.15f;
@@ -27,6 +27,8 @@ public class Fly : LimitedTimeComponent {
 	// Use this for initialization
 	void Start () {
 		player = GetComponent<PlayerControl> ();
+		playerAnimation = GetComponentInChildren<Animator> ();
+		playerAnimation.SetBool("Fly", true);
 	}
 	
 	// Update is called once per frame
@@ -108,6 +110,7 @@ public class Fly : LimitedTimeComponent {
 			break;
 		case 1:
 			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, -1.5f * fallSpeed);
+			playerAnimation.SetTrigger("Flap");
 			break;
 		case 2:
 			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, flapForce);
@@ -131,6 +134,10 @@ public class Fly : LimitedTimeComponent {
 
 	public override void init(float timeActive) {
 		base.init(timeActive, GetComponent<NormalJump> ());
+	}
+
+	protected override void OnRemove() {
+		playerAnimation.SetBool("Fly", false);
 	}
 
 }

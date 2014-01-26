@@ -27,9 +27,6 @@ public abstract class LimitedTimeComponent : MonoBehaviour {
 			if (restoreScript) {
 				restoreScript.enabled = true;
 			}
-			Vector3 cantPos = transform.position;
-			cantPos.y += GetComponent<BoxCollider2D>().size.y + 0.2f;
-			Camera.main.GetComponent<MenuCamera>().dialogs.showCantAt(cantPos);
 			OnRemove();
 			Destroy(this);
 		}
