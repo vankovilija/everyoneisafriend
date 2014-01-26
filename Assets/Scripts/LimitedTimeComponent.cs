@@ -27,9 +27,13 @@ public abstract class LimitedTimeComponent : MonoBehaviour {
 			if (restoreScript) {
 				restoreScript.enabled = true;
 			}
+			OnRemove();
 			Destroy(this);
 		}
 	}
 
 	public abstract void init(float timeActive);
+	protected virtual void OnRemove() {
+
+	}
 }
