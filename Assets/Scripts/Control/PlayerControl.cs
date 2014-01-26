@@ -64,14 +64,14 @@ public class PlayerControl : MonoBehaviour {
 		bottomRight = new Vector3 (colider.center.x + colider.size.x / 2, colider.center.y - colider.size.y / 2, 0f);
 		
 		singleUnitHorizontalVector = new Vector3 (0.3f, 0f, 0f);
-		singleUnitVerticalVector = new Vector3 (0f, 0.1f, 0f);
+		singleUnitVerticalVector = new Vector3 (0f, 0.0001f, 0f);
 		_spawnPosition = new Vector2 (transform.position.x, transform.position.y);
 
 		anim = GetComponentInChildren<Animator> ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void ForceUpdate () {
 
 	}
 	
@@ -93,11 +93,12 @@ public class PlayerControl : MonoBehaviour {
 			groundRaycastPoint = tempPoint;
 		}
 
-		Vector3 skyRaycastPoint = transform.position + topLeftScaled + singleUnitVerticalVector - singleUnitHorizontalVector;
-		tempPoint = transform.position + topRightScaled + singleUnitVerticalVector + singleUnitHorizontalVector;
+		Vector3 skyRaycastPoint = transform.position + bottomLeft;
+		tempPoint = transform.position + bottomRight;
 		direction = ((skyRaycastPoint + singleUnitVerticalVector) - skyRaycastPoint).normalized;
-		sky = Physics2D.Raycast (skyRaycastPoint, direction);		
-		tempHit = Physics2D.Raycast (tempPoint, direction);			
+		float size =  GetComponent<BoxCollider2D>().size.y + 1;
+		sky = Physics2D.Raycast (skyRaycastPoint, direction, size, layerMaskSky);	
+		tempHit = Physics2D.Raycast (tempPoint, direction, size, layerMaskSky);			
 		if (Vector2.Distance (skyRaycastPoint, sky.point) > Vector2.Distance (tempHit.point, tempPoint)) {
 			sky = tempHit;
 			skyRaycastPoint = tempPoint;
@@ -139,7 +140,7 @@ public class PlayerControl : MonoBehaviour {
 			grounded = false;
 		}
 
-		if (sky && (layerMaskSky >> sky.collider.gameObject.layer) % 2 == 1 && Vector2.Distance (sky.point, skyRaycastPoint) < rigidbody2D.velocity.y * Time.deltaTime) {
+		if (sky && rigidbody2D.velocity.y > 0) {
 			Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("player"), sky.collider.gameObject.layer);
 		}
 				
