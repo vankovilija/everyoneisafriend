@@ -49,6 +49,7 @@ public class Checkpoint : MonoBehaviour {
 		if (obj.tag == playerTag && avaible) {
 			PlayerControl player = obj.GetComponent<PlayerControl> ();
 			if (player) {
+				GetComponent<AudioSource>().Play();
 				if (gameSetup) {
 					gameSetup.OnCheckpoint(orderId);
 				}
