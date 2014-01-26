@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Powerups : MonoBehaviour {
 
-	static private string[] powerups = new string[]{"SuperJump", "BigScale", "FastSpeed"};
+	static private string[] powerups = new string[]{"SuperJump", "BigScale", "FastSpeed", "Fly"};
 
 
 	static public string GetPowerup(int powerup) {

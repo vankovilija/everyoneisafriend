@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Fly : MonoBehaviour {
+public class Fly : LimitedTimeComponent {
 
 	private PlayerControl player;
 
 
 	public float flapTime = 0.1f;
-	public float flapTimeDistance = 0.2f;
-	public float flapLiftTime = 0.4f;
-	public float fallSpeed = 0.05f;
+	public float flapTimeDistance = 0.15f;
+	public float flapLiftTime = 0.3f;
+	public float fallSpeed = 0.1f;
 
-	public float flapForce = 10f;
+	public float flapForce = 4f;
 
 	private bool fly;
 
@@ -31,7 +31,7 @@ public class Fly : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//base.Update ();
+		base.Update ();
 //		if (timingUp) {
 //			countUp -= Time.deltaTime;
 //			if(countUp <= 0){
@@ -127,4 +127,10 @@ public class Fly : MonoBehaviour {
 //		timingUp = false;
 //		countUp = pushTime;
 //	}
+
+
+	public override void init(float timeActive) {
+		base.init(timeActive, GetComponent<NormalJump> ());
+	}
+
 }
