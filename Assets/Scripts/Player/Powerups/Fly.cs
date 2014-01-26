@@ -71,7 +71,7 @@ public class Fly : LimitedTimeComponent {
 		}
 		fly = Input.GetButton ("Jump");
 		
-		if (fly && currentState == 0) {
+		if (fly && currentState == 0 && !player.disabled) {
 			currentState = 1;
 			currentTime = 0;
 		}
@@ -131,13 +131,17 @@ public class Fly : LimitedTimeComponent {
 //		countUp = pushTime;
 //	}
 
+	void OnDestroy() {
+		playerAnimation.SetBool("Fly", false);
+	}
+
 
 	public override void init(float timeActive) {
 		base.init(timeActive, GetComponent<NormalJump> ());
 	}
 
 	protected override void OnRemove() {
-		playerAnimation.SetBool("Fly", false);
+
 	}
 
 }

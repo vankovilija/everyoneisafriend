@@ -4,13 +4,17 @@ using System.Collections;
 public class SuperJump : Jump {
 
 	public override void init(float timeActive) {
-
 		base.init(timeActive, GetComponent<NormalJump> ());
 		cloud = GetComponent<NormalJump> ().cloud;
-
 	}	
 	
 	protected override void Setup() {
+
+		Fly fly = GetComponent<Fly> ();
+		if (!fly) {
+			
+			DestroyImmediate (fly);
+		}
 
 		jumpForce = 20;
 
