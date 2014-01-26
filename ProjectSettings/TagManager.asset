@@ -55,3 +55,7 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: Real_Foreground
+    userID: 4
+    uniqueID: 3871755143
+    locked: 0

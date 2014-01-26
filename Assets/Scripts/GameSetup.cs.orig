@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -26,9 +26,12 @@ public class GameSetup : MonoBehaviour {
 	void Start () {
 
 		GameObject.FindGameObjectWithTag (PlayerControl.PLAYER_TAG).GetComponent<Health>().OnDeath += PlayerDeathHandler;
+<<<<<<< HEAD
 		mainCam = Camera.main;
+=======
 		Screen.showCursor = false;
 
+>>>>>>> a9d428e07d6e3ae1f6bb427d7501b8f96e181fd5
 	}
 
 	void Update () {
