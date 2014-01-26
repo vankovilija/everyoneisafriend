@@ -2418,7 +2418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
-  NPCPowerUp: 1
+  NPCPowerUp: 2
   NPCPowerUpTime: 3
   stopDistance: .200000003
 --- !u!114 &355031711
@@ -2450,6 +2450,7 @@ MonoBehaviour:
   maxTimer: 5
   platformLayers:
   - platforms
+  - platforms_nonpassable
 --- !u!50 &355031713
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -3949,7 +3950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogOffset: {x: 0, y: 0}
-  NPCPowerUp: 1
+  NPCPowerUp: 2
   NPCPowerUpTime: 5
   stopDistance: .200000003
 --- !u!114 &728817499
@@ -3981,6 +3982,7 @@ MonoBehaviour:
   maxTimer: 5
   platformLayers:
   - platforms
+  - platforms_nonpassable
 --- !u!50 &728817501
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -6682,6 +6684,7 @@ MonoBehaviour:
   maxTimer: 5
   platformLayers:
   - platforms
+  - platforms_nonpassable
 --- !u!50 &1125160064
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -7411,6 +7414,7 @@ MonoBehaviour:
   maxTimer: 5
   platformLayers:
   - platforms
+  - platforms_nonpassable
 --- !u!50 &1258765772
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -10253,6 +10257,7 @@ MonoBehaviour:
   maxTimer: 5
   platformLayers:
   - platforms
+  - platforms_nonpassable
 --- !u!50 &1790755486
 Rigidbody2D:
   m_ObjectHideFlags: 0
