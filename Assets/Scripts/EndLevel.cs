@@ -37,7 +37,7 @@ public class EndLevel : MonoBehaviour {
 
 	private void ObjectOnFinishLine (GameObject obj) {
 		if (obj.tag == playerTag) {
-			if(gameSetup.totalConfidence < 80){
+			if(gameSetup.totalConfidence < 50){
 				Vector3 showPoint = transform.position;
 				showPoint.y += GetComponent<BoxCollider2D>().size.y / 2f;
 				Camera.main.GetComponent<MenuCamera>().dialogs.showMoreConfidenceAt(showPoint);
@@ -54,7 +54,11 @@ public class EndLevel : MonoBehaviour {
 
 					nextLevel = true;
 
-					Application.LoadLevel(Application.loadedLevel + 1);
+					if(Application.loadedLevel == Application.levelCount - 1){
+						Application.LoadLevel(0);
+					}else{
+						Application.LoadLevel(Application.loadedLevel + 1);
+					}
 				}
 			}
 
