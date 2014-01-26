@@ -17,7 +17,8 @@ public class MenuCamera : SFCamera {
 	new public  IEnumerator Start()
 	{
 		SF_SetKey("BEOY7LTWH217LULMEBD5KWSD3NGQLUSLY96XHSLNP7JUXU9Y1AX6YC9SQFBZZT9");
-		
+		SF_SetTextureCount(500);
+
 		return base.Start();
 	}
 
@@ -31,14 +32,14 @@ public class MenuCamera : SFCamera {
 	{
 		if (menu == null) {
 			SFMovieCreationParams creationParams = CreateMovieCreationParams(MENU_File);
-	     	creationParams.TheScaleModeType  = ScaleModeType.SM_ShowAll;
+//	     	creationParams.TheScaleModeType  = ScaleModeType.SM_ShowAll;
 			creationParams.IsInitFirstFrame = false;
 			menu = new FlashMenu(this, SFMgr, creationParams);
 		}
 
 		if (dialogs == null) {
 			SFMovieCreationParams creationParams = CreateMovieCreationParams(DIALOGS_File);
-	     	creationParams.TheScaleModeType  = ScaleModeType.SM_NoScale;
+//	     	creationParams.TheScaleModeType  = ScaleModeType.SM_NoScale;
 			creationParams.IsInitFirstFrame = false;
 			dialogs = new FlashDialogs(this, SFMgr, creationParams);
 		}
