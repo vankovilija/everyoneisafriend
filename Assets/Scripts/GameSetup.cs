@@ -27,6 +27,7 @@ public class GameSetup : MonoBehaviour {
 	void Start () {
 
 		GameObject.FindGameObjectWithTag (PlayerControl.PLAYER_TAG).GetComponent<Health>().OnDeath += PlayerDeathHandler;
+		Screen.showCursor = false;
 
 	}
 
