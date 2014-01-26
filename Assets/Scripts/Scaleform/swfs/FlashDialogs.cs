@@ -77,5 +77,13 @@ public class FlashDialogs : Movie
 	public void hideCant(){
 		theMovie.Invoke ("hideCant");
 	}
+
+	public void showMoreConfidenceAt(Vector3 moreConfidencePosition){
+		Vector3 screenPos = parent.camera.WorldToScreenPoint( moreConfidencePosition );
+		object[] p = new object[2];
+		p [0] = screenPos.x;
+		p [1] = Screen.height - screenPos.y;
+		theMovie.Invoke ("showMoreConfidenceAt", p);
+	}
 }
 
