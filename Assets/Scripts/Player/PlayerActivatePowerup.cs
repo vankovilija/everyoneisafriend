@@ -21,6 +21,10 @@ public class PlayerActivatePowerup : MonoBehaviour {
 			(gameObject.AddComponent(powerup) as LimitedTimeComponent).init(timeActive);
 		}
 
+		Vector3 canPos = transform.position;
+		canPos.y += GetComponent<BoxCollider2D>().size.y + 0.2f;
+		Camera.main.GetComponent<MenuCamera>().dialogs.showCanAt(canPos);
+
 	}
 
 }
