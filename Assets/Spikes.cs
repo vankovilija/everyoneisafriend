@@ -8,9 +8,11 @@ public class Spikes : MonoBehaviour {
 
 	public float upTime = 1f;
 	public float downTime = 2.5f;
+	public float startTime = 0f;
 
 	private int currentState = 0; // 0 - down, 1 - up
 	private float currentTime = 0;
+	private bool started = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,23 +26,32 @@ public class Spikes : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		currentTime += Time.deltaTime;
-		switch (currentState) {
-		case 0:
-			if(currentTime >= upTime){
-				currentState = 1;
-				currentTime = 0;
-				ChangeSpike(currentState);
+		if(started){
+			currentTime += Time.deltaTime;
+			switch (currentState) {
+			case 0:
+				if(currentTime >= upTime){
+					currentState = 1;
+					currentTime = 0;
+					ChangeSpike(currentState);
+				}
+				break;
+			case 1:
+				if(currentTime >= downTime){
+					currentTime = 0;
+					currentState = 0;
+					ChangeSpike(currentState);
+				}
+				break;
 			}
-			break;
-		case 1:
-			if(currentTime >= downTime){
+		}else{
+			currentTime += Time.deltaTime;
+			if(currentTime >= startTime){
+				started = true;
 				currentTime = 0;
-				currentState = 0;
-				ChangeSpike(currentState);
 			}
-			break;
 		}
+
 	}
 
 	void ChangeSpike(int state){
