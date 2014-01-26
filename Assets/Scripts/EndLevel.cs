@@ -37,17 +37,25 @@ public class EndLevel : MonoBehaviour {
 
 	private void ObjectOnFinishLine (GameObject obj) {
 		if (obj.tag == playerTag) {
+			if(gameSetup.totalConfidence < 80){
+				Vector3 showPoint = transform.position;
+				showPoint.y += GetComponent<BoxCollider2D>().size.y / 2f;
+				Camera.main.GetComponent<MenuCamera>().dialogs.showMoreConfidenceAt(showPoint);
+				Debug.Log(showPoint);
+			}else{
+				if (!nextLevel) {
+					gameSetup.StopCountLevelTime ();
 
-			if (!nextLevel) {
-				gameSetup.StopCountLevelTime ();
+					obj.GetComponentInChildren<Animator> ().SetTrigger("NextLevel");
+					obj.GetComponent<PlayerControl> ().disabled = true;
 
-				obj.GetComponentInChildren<Animator> ().SetTrigger("NextLevel");
-				obj.GetComponent<PlayerControl> ().disabled = true;
+					Rigidbody2D playerBody = obj.GetComponent<Rigidbody2D> ();
+					playerBody.velocity = new Vector2 (0.0f, playerBody.velocity.y);
 
-				Rigidbody2D playerBody = obj.GetComponent<Rigidbody2D> ();
-				playerBody.velocity = new Vector2 (0.0f, playerBody.velocity.y);
+					nextLevel = true;
 
-				nextLevel = true;
+					Application.LoadLevel(Application.loadedLevel + 1);
+				}
 			}
 
 		}
