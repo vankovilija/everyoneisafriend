@@ -36,7 +36,7 @@ public class FlashDialogs : Movie
 	}
 
 	public void showDialogAt(Vector3 dialogPosition, int powerUp){
-		Vector3 screenPos = parent.camera.ViewportToScreenPoint ( parent.camera.WorldToViewportPoint( dialogPosition ));
+		Vector3 screenPos = parent.camera.WorldToScreenPoint( dialogPosition );
 		object[] p = new object[3];
 		p [0] = screenPos.x;
 		p [1] = Screen.height - screenPos.y;
@@ -50,6 +50,32 @@ public class FlashDialogs : Movie
 
 	public void activateDialogPowerup() {
 		theMovie.Invoke ("takeDialogBuff");
+	}
+
+	public void showCanAt(Vector3 canPosition, string text = "YES I CAN!"){
+		Vector3 screenPos = parent.camera.WorldToScreenPoint( canPosition );
+		object[] p = new object[3];
+		p [0] = screenPos.x;
+		p [1] = Screen.height - screenPos.y;
+		p [2] = text;
+		theMovie.Invoke ("showCan", p);
+	}
+
+	public void hideCan(){
+		theMovie.Invoke ("hideCan");
+	}
+	
+	public void showCantAt(Vector3 cantPosition, string text = "OPS I CAN'T!"){
+		Vector3 screenPos = parent.camera.WorldToScreenPoint( cantPosition );
+		object[] p = new object[3];
+		p [0] = screenPos.x;
+		p [1] = Screen.height - screenPos.y;
+		p [2] = text;
+		theMovie.Invoke ("showCant", p);
+	}
+
+	public void hideCant(){
+		theMovie.Invoke ("hideCant");
 	}
 }
 
