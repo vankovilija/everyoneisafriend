@@ -9,9 +9,9 @@ public class Fly : LimitedTimeComponent {
 	public float flapTime = 0.1f;
 	public float flapTimeDistance = 0.15f;
 	public float flapLiftTime = 0.3f;
-	public float fallSpeed = 0.1f;
+	public float fallSpeed = 0.08f;
 
-	public float flapForce = 4f;
+	public float flapForce = 6f;
 
 	private bool fly;
 

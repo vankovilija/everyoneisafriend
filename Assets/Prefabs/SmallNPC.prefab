@@ -12,10 +12,11 @@ GameObject:
   - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400004}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
+  - 95: {fileID: 9500000}
   m_Layer: 11
-  m_Name: BlueFriend
+  m_Name: SmallNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.5964966, y: -4.93383646, z: 0}
+  m_LocalPosition: {x: 4.14781857, y: -2.8834939, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,8 +57,22 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 19c30b3c038694c52896b61dc2c4d783, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: .600000024, y: .800000012}
-  m_Center: {x: 0, y: -.00999999978}
+  m_Size: {x: 1.14999998, y: 1.35000002}
+  m_Center: {x: 0, y: 0}
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb259894a61aa4d9ca86e3fd17a23721, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,20 +81,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a3dbb965234e43f48b88fd2e27ba814, type: 3}
+  m_Script: {fileID: 11500000, guid: c51a23d33c03944649bcf6c4913d8968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogOffset: {x: 0, y: 0}
-  NPCPowerUp: 2
-  NPCPowerUpTime: 10
-  stopDistance: .200000003
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d60dc887f40d478aa5474ca70155003, type: 3}
   m_Name: 
@@ -98,9 +109,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c51a23d33c03944649bcf6c4913d8968, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a3dbb965234e43f48b88fd2e27ba814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogOffset: {x: 0, y: 0}
+  NPCPowerUp: 2
+  NPCPowerUpTime: 10
+  stopDistance: .200000003
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -122,7 +137,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_SortingLayerID: 2715914445
-  m_Sprite: {fileID: 21300000, guid: a842e47ad094c4c05882a2a42410d997, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 193633c827c0d4154bbed88c2d061791, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
