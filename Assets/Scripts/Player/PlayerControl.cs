@@ -114,6 +114,10 @@ public class PlayerControl : MonoBehaviour {
 			axisDirection = 0;
 		}
 
+		if (disabled) {
+			axisDirection = 0;
+		}
+
 		UpdatePlayerMoveSpeed ();
 
 		double distanceToGround = Vector2.Distance (ground.point, groundRaycastPoint);

@@ -7,8 +7,11 @@ public class GameSetup : MonoBehaviour {
 
 	internal int lifesLost = 0;
 	internal int scrolls = 0;
+	internal float levelTime = 0;
 
+	private bool countTime = true;
 	private Camera mainCam;
+		
 
 	public delegate void EventHandler (int orderId);
 	public event EventHandler CheckpointReach;
@@ -27,6 +30,11 @@ public class GameSetup : MonoBehaviour {
 
 	}
 
+	void Update () {
+		if (countTime)
+			levelTime += Time.deltaTime;
+	}
+
 	void PlayerDeathHandler(){
 		lifesLost ++;
 		Debug.Log ("Lifes lost: " + lifesLost);
@@ -36,4 +44,9 @@ public class GameSetup : MonoBehaviour {
 		scrolls++;
 		mainCam.GetComponent<MenuCamera> ().menu.pickupScroll (scrollObject.GetComponent<ScrollCollect>().scrollID);
 	}
+
+	public void StopCountLevelTime() {
+		countTime = false;
+	}
+	
 }

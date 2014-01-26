@@ -19,7 +19,7 @@ public abstract class Jump : LimitedTimeComponent {
 	// Update is called once per frame
 	public new void Update () {
 		base.Update ();
-		if (Input.GetButtonDown ("Jump") && player.grounded) {
+		if (Input.GetButtonDown ("Jump") && player.grounded && !player.disabled) {
 			jump = true;
 		}
 	}

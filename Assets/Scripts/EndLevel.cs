@@ -9,6 +9,11 @@ public class EndLevel : MonoBehaviour {
 
 	private float time = 0;
 	private bool nextLevel = false;
+	private GameSetup gameSetup;
+
+	void Start() {
+		gameSetup = GameObject.Find("_GM").GetComponent<GameSetup>();
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -32,13 +37,18 @@ public class EndLevel : MonoBehaviour {
 
 	private void ObjectOnFinishLine (GameObject obj) {
 		if (obj.tag == playerTag) {
-			obj.GetComponentInChildren<Animator> ().SetTrigger("NextLevel");
-			foreach (MonoBehaviour script in obj.GetComponents<MonoBehaviour> ()) {
-				script.enabled = false;
+
+			if (!nextLevel) {
+				gameSetup.StopCountLevelTime ();
+
+				obj.GetComponentInChildren<Animator> ().SetTrigger("NextLevel");
+				obj.GetComponent<PlayerControl> ().disabled = true;
+
+				Rigidbody2D playerBody = obj.GetComponent<Rigidbody2D> ();
+				playerBody.velocity = new Vector2 (0.0f, playerBody.velocity.y);
+
+				nextLevel = true;
 			}
-			Rigidbody2D playerBody = obj.GetComponent<Rigidbody2D> ();
-			playerBody.velocity = Vector2.zero;
-			nextLevel = true;
 
 		}
 	}
