@@ -346,7 +346,7 @@ Transform:
   m_PrefabInternal: {fileID: 843899870}
   m_GameObject: {fileID: 181721227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.4357872, y: 4.68349028, z: 0}
+  m_LocalPosition: {x: 35.4658127, y: 4.68349028, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -627,6 +627,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 347502987}
   - 212: {fileID: 347502986}
+  - 61: {fileID: 347502988}
   m_Layer: 0
   m_Name: flying-platform-06
   m_TagString: Untagged
@@ -664,10 +665,21 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 347502985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.5220604, y: 12.4933205, z: 0}
+  m_LocalPosition: {x: 20.6221409, y: 11.4496126, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &347502988
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 347502985}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 12.8999996, y: .25223425}
+  m_Center: {x: 0, y: 1.23000002}
 --- !u!1 &370340851
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +774,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 423274420}
   - 212: {fileID: 423274419}
+  - 61: {fileID: 423274421}
   m_Layer: 0
   m_Name: flying-platform-03
   m_TagString: Untagged
@@ -803,6 +816,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &423274421
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423274418}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.91263175, y: .157359332}
+  m_Center: {x: -.00931930542, y: .166775703}
 --- !u!1001 &468261978
 Prefab:
   m_ObjectHideFlags: 0
@@ -1574,7 +1598,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ec0e756fe49a948fb9a417cc2e6c1b3f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 35.4357872
+      value: 35.4658127
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ec0e756fe49a948fb9a417cc2e6c1b3f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2183,6 +2207,16 @@ GameObject:
   m_Component:
   - 4: {fileID: 1175917974}
   - 212: {fileID: 1175917973}
+  - 61: {fileID: 1175917984}
+  - 61: {fileID: 1175917983}
+  - 61: {fileID: 1175917982}
+  - 61: {fileID: 1175917981}
+  - 61: {fileID: 1175917980}
+  - 61: {fileID: 1175917979}
+  - 61: {fileID: 1175917978}
+  - 61: {fileID: 1175917977}
+  - 61: {fileID: 1175917976}
+  - 61: {fileID: 1175917975}
   m_Layer: 0
   m_Name: flying-platform-05
   m_TagString: Untagged
@@ -2224,6 +2258,116 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &1175917975
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .339488387, y: .182614535}
+  m_Center: {x: -.10733223, y: -.119719505}
+--- !u!61 &1175917976
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.02476835, y: .166097164}
+  m_Center: {x: 1.97504807, y: 1.19997406}
+--- !u!61 &1175917977
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .491816521, y: .130748391}
+  m_Center: {x: -.652135849, y: .989596367}
+--- !u!61 &1175917978
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 3.28427124, y: .548307896}
+  m_Center: {x: -.0838832855, y: 1.77327919}
+--- !u!61 &1175917979
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .819320679, y: 2.4454155}
+  m_Center: {x: -2.16033745, y: .722710609}
+--- !u!61 &1175917980
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.40755451, y: 1.27101469}
+  m_Center: {x: .690485001, y: .375508308}
+--- !u!61 &1175917981
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .694931984, y: 1.48289919}
+  m_Center: {x: -1.43797684, y: -.131449699}
+--- !u!61 &1175917982
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .261282206, y: 1.33652854}
+  m_Center: {x: -.947347641, y: -.408262253}
+--- !u!61 &1175917983
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .597805738, y: .548562765}
+  m_Center: {x: -.529191971, y: -.793241501}
+--- !u!61 &1175917984
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175917972}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.97917724, y: .597809315}
+  m_Center: {x: .759599686, y: -1.11890507}
 --- !u!1 &1250751488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,6 +2760,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1484608005}
   - 212: {fileID: 1484608004}
+  - 61: {fileID: 1484608006}
   m_Layer: 0
   m_Name: flying-platform-04
   m_TagString: Untagged
@@ -2657,6 +2802,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &1484608006
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1484608003}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 3.84321785, y: .194400072}
+  m_Center: {x: -1.51654053, y: 1.44279957}
 --- !u!1 &1512177511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +3005,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1659806512}
   - 212: {fileID: 1659806511}
+  - 61: {fileID: 1659806513}
   m_Layer: 8
   m_Name: flying-platform-01
   m_TagString: Untagged
@@ -2890,6 +3047,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &1659806513
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659806510}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.89414322, y: .14283371}
+  m_Center: {x: -.00785827637, y: .146575451}
 --- !u!1 &1673583967
 GameObject:
   m_ObjectHideFlags: 0
@@ -3279,6 +3447,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 2098420879}
   - 212: {fileID: 2098420878}
+  - 61: {fileID: 2098420881}
+  - 61: {fileID: 2098420880}
   m_Layer: 0
   m_Name: flying-platform-02
   m_TagString: Untagged
@@ -3320,6 +3490,28 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &2098420880
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098420877}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.95361328, y: .187432289}
+  m_Center: {x: 1.64407349, y: -.423885822}
+--- !u!61 &2098420881
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098420877}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 3.09402943, y: .24823314}
+  m_Center: {x: -.830734253, y: .562673569}
 --- !u!1 &2099330260
 GameObject:
   m_ObjectHideFlags: 0
