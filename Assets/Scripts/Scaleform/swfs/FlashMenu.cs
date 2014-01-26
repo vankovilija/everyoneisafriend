@@ -40,4 +40,10 @@ public class FlashMenu : Movie {
 		p [0] = scrollID;
 		theMovie.Invoke ("pickupScroll", p);
 	}
+
+	public void updateConfidence(float confidence){
+		object[] p = new object[1];
+		p [0] = confidence;
+		theMovie.Invoke ("updateConfidence", p);
+	}
 }
