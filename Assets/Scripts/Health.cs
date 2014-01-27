@@ -41,6 +41,11 @@ public class Health : MonoBehaviour {
 			timer = 0;
 			if (OnDeath != null)
 				OnDeath ();
+
+			LimitedTimeComponent[] limitedComponents = GetComponents<LimitedTimeComponent>();
+			for(int i = 0; i < limitedComponents.Length; i++){
+				limitedComponents[i].ExpireComponent();
+			}
 		}
 	}
 

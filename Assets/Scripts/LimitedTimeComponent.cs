@@ -4,7 +4,7 @@ using System.Collections;
 public abstract class LimitedTimeComponent : MonoBehaviour {
 
 	private float timeLimit;
-	private MonoBehaviour restoreScript;
+	protected MonoBehaviour restoreScript;
 
 	private float timeSpend;
 
@@ -24,17 +24,25 @@ public abstract class LimitedTimeComponent : MonoBehaviour {
 	public void Update () {
 		timeSpend += Time.deltaTime;
 		if (timeLimit > 0 && timeSpend >= timeLimit) {
-			if (restoreScript) {
-				restoreScript.enabled = true;
+			if(ExpireComponent()){
+				Vector3 cantPos = transform.position;
+				cantPos.y += GetComponent<BoxCollider2D>().size.y + 0.2f;
+				Camera.main.GetComponent<MenuCamera>().dialogs.showCantAt(cantPos);
 			}
-			Vector3 cantPos = transform.position;
-			cantPos.y += GetComponent<BoxCollider2D>().size.y + 0.2f;
-			Camera.main.GetComponent<MenuCamera>().dialogs.showCantAt(cantPos);
-			OnRemove();
-			Destroy(this);
 		}
 	}
 
+	public bool ExpireComponent(){
+		if (restoreScript == null) {
+			return false;
+		}
+
+		restoreScript.enabled = true;
+		OnRemove();
+		Destroy(this);
+		return true;
+	}
+	
 	public abstract void init(float timeActive);
 	protected virtual void OnRemove() {
 
